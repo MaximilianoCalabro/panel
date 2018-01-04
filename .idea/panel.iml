@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/google/recaptcha" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/guzzlehttp/ringphp" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/guzzlehttp/streams" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/league/csv" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/mailgun/mailgun-php" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/application/vendor/zircote/swagger-php" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/application/vendor/composer" />
+          <root url="file://$MODULE_DIR$/application/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/application/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/application/vendor/firebase/php-jwt" />
+          <root url="file://$MODULE_DIR$/application/vendor/google/recaptcha" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/guzzle" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/ringphp" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/streams" />
+          <root url="file://$MODULE_DIR$/application/vendor/league/csv" />
+          <root url="file://$MODULE_DIR$/application/vendor/mailgun/mailgun-php" />
+          <root url="file://$MODULE_DIR$/application/vendor/react/promise" />
+          <root url="file://$MODULE_DIR$/application/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/application/vendor/zircote/swagger-php" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/application/vendor/composer" />
+          <root url="file://$MODULE_DIR$/application/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/application/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/application/vendor/firebase/php-jwt" />
+          <root url="file://$MODULE_DIR$/application/vendor/google/recaptcha" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/guzzle" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/ringphp" />
+          <root url="file://$MODULE_DIR$/application/vendor/guzzlehttp/streams" />
+          <root url="file://$MODULE_DIR$/application/vendor/league/csv" />
+          <root url="file://$MODULE_DIR$/application/vendor/mailgun/mailgun-php" />
+          <root url="file://$MODULE_DIR$/application/vendor/react/promise" />
+          <root url="file://$MODULE_DIR$/application/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/application/vendor/zircote/swagger-php" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
