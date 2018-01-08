@@ -125,20 +125,36 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Titulo
+                        <h1>
+                            <?php foreach ($who->result() as $fila): ?>
+                            <span><?php echo $fila ->titulo ; ?></span>
+                            <?php endforeach; ?>
                         </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
 
                 <div class="col-md-12 col-sm-6 st-service">
-                    <h2>SUBTITULO </h2>
-                                    <?php foreach ($usuarios->result() as $fila): ?>
-                                    <span class="label label-primary"><?php echo $fila ->username ; ?></span>
-                                    <?php endforeach; ?>
-                    <p>TEXTO 1</p>
+                    
+                    <h2>
+                        <?php foreach ($who->result() as $fila): ?>
+                        <span><?php echo $fila ->subtitulo ; ?></span>
+                        <?php endforeach; ?>
+                    </h2>
+                    <br>
+                    <p>
+                        <?php foreach ($who->result() as $fila): ?>
+                        <span><?php echo $fila ->texto1 ; ?></span>
+                        <?php endforeach; ?>
+                    </p>
+                    
+                    <br>
 
-                    <p>TEXTO 2</p>
+                    <p>
+                        <?php foreach ($who->result() as $fila): ?>
+                        <span><?php echo $fila ->texto2 ; ?></span>
+                        <?php endforeach; ?>
+                    </p>
                 </div>
 
                 <!--<div class="col-md-4 col-sm-6 st-service">
@@ -157,16 +173,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Nuestra Planta</h1>
+                        <h1>
+                            <?php foreach ($plant->result() as $fila): ?>
+                            <span><?php echo $fila ->titulo ; ?></span>
+                            <?php endforeach; ?>
+                        </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
 
                 <div class="portfolio-wrapper" >
                     <div class="col-md-12">
-                        <p>Contamos con una renovada planta elaboradora donde la higiene y minucioso cuidado de los productos que fabricamos es nuestra obsesión.
-                        Contamos con adecuados sistemas de filtros sanitarios, cámaras y depósitos que dan al producto final condiciones óptimas que podemos orgullosamente mostrar y garantizar.
-                        La planta se encuentra a escasos kilómetros del lugar de origen de la leche que diariamente se recolecta, tambos propios y de vecinos que aportan la materia prima encuadrada dentro de los más altos parámetros de calidad. Menos de 30.000 bacterias por cm3 antes de la pasteurización.</p>
+                        <p>
+                            <?php foreach ($plant->result() as $fila): ?>
+                            <span><?php echo $fila ->texto ; ?></span>
+                            <?php endforeach; ?>
+                        </p>
                     </div>
                     
                     <div class="portfolio-items">
@@ -343,13 +365,20 @@
                 <div class="col-sm-6">
                     <div class="about-us text-left">
                         <div class="section-title">
-                            <h1>UBICACION</h1>
+                            <h1>
+                                <?php foreach ($loc->result() as $fila): ?>
+                                <span><?php echo $fila ->titulo ; ?></span>
+                                <?php endforeach; ?>
+                            </h1>
                             <span class="st-border"></span>
                         </div>
                     </div>
                     <div class="about-us text-center">
-                        <p>Nuestra Planta se encuentra en la localidad de Villa Maza, partido de Adolfo Alsina en el Centro Oeste de la Provincia de Buenos Aires y a escasos kilómetros de La Pampa. (Meridiano V) por la ruta interprovincial 14.
-                        Prácticamente en el Centro del País y en la parte sur de la cuenca lechera del Oeste.</p>
+                        <p>
+                            <?php foreach ($loc->result() as $fila): ?>
+                            <span><?php echo $fila ->texto ; ?></span>
+                            <?php endforeach; ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 our-office">
@@ -395,13 +424,24 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Contactenos</h1>
+                        <h1><span>
+                        <?php foreach ($cont->result() as $fila): ?>
+                        <span><?php echo $fila ->titulo ; ?></span>
+                        <?php endforeach; ?></span></h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
                 <div class="col-sm-4 contact-info">
-                    <p class="st-address"><i class="fa fa-map-marker"></i> <strong>CP 6343 – Villa Maza Provincia de Buenos Aires, Argentina</strong></p>
-                    <p class="st-phone"><i class="fa fa-mobile"></i> <strong>(0293)5489093</strong></p>
+                    <p class="st-address"><i class="fa fa-map-marker"></i> <strong><span>
+                        <?php foreach ($cont->result() as $fila): ?>
+                        <span><?php echo $fila ->texto1 ; ?></span>
+                        <?php endforeach; ?>
+                    </span></strong></p>
+                    <p class="st-phone"><i class="fa fa-mobile"></i> <strong><span>
+                        <?php foreach ($cont->result() as $fila): ?>
+                        <span><?php echo $fila ->texto2 ; ?></span>
+                        <?php endforeach; ?>
+                    </span></strong></p>
                 </div>
                 <div class="col-sm-7 col-sm-offset-1">
                     <form action="php/send-contact.php" class="contact-form" name="contact-form" method="post">

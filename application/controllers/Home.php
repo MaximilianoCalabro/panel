@@ -12,7 +12,12 @@ public function __construct()
 		parent::__construct();
 		$this->load->library('form_builder');
 		$this->push_breadcrumb('Demo');
-$this->load->model('SeccionHeader_Model');
+		$this->load->model('SeccionChesse_Model');
+		$this->load->model('SeccionContact_Model');
+		$this->load->model('SeccionHeader_Model');
+		$this->load->model('SeccionLocation_Model');
+		$this->load->model('SeccionPlant_Model');
+		$this->load->model('SeccionWho_Model');
 	}
 	public function index()
 	{
@@ -23,7 +28,22 @@ $this->load->model('SeccionHeader_Model');
 		//$this->mViewData['photos'] = $this->photos->get_all();
 		$this->mViewData['photos'] = "mi foto";
 
-        $this->mViewData['usuarios'] = $this->SeccionHeader_Model->get_admin_user();
+		//SECCION_WHO
+        $this->mViewData['who'] = $this->SeccionWho_Model->get_seccion_who();
+
+        //SECCION_PLANT
+        $this->mViewData['plant'] = $this->SeccionPlant_Model->get_seccion_plant();
+
+		//SECCION_LOCATION
+        $this->mViewData['loc'] = $this->SeccionLocation_Model->get_seccion_location();
+
+        //SECCION_CONTACT
+        $this->mViewData['cont'] = $this->SeccionContact_Model->get_seccion_contact();
+
+        
+     
+
+
 
 		$this->render('home');
 	}
