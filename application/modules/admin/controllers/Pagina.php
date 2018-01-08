@@ -15,28 +15,28 @@ class Pagina extends Admin_Controller {
 		$crud = $this->generate_crud('groups');
 		$this->mPageTitle = 'User Groups';
 		$this->render_crud();
-		// $crud = $this->generate_crud('users');
-		// $crud->columns('groups', 'username', 'email', 'first_name', 'last_name', 'active');
-		// $this->unset_crud_fields('ip_address', 'last_login');
+		$crud = $this->generate_crud('users');
+	    $crud->columns('groups', 'username', 'email', 'first_name', 'last_name', 'active');
+        $this->unset_crud_fields('ip_address', 'last_login');
 
 		// only webmaster and admin can change member groups
-		// if ($crud->getState()=='list' || $this->ion_auth->in_group(array('webmaster', 'admin')))
-		// {
-		// 	$crud->set_relation_n_n('groups', 'users_groups', 'groups', 'user_id', 'group_id', 'name');
-		// }
+		if ($crud->getState()=='list' || $this->ion_auth->in_group(array('webmaster', 'admin')))
+		{
+		    $crud->set_relation_n_n('groups', 'users_groups', 'groups', 'user_id', 'group_id', 'name');
+		}
 
 		// only webmaster and admin can reset user password
-		// if ($this->ion_auth->in_group(array('webmaster', 'admin')))
-		// {
-		// 	$crud->add_action('Reset Password', '', 'admin/user/reset_password', 'fa fa-repeat');
-		// }
+		if ($this->ion_auth->in_group(array('webmaster', 'admin')))
+		{
+		    $crud->add_action('Reset Password', '', 'admin/user/reset_password', 'fa fa-repeat');
+		}
 
 		// disable direct create / delete Frontend User
-		// $crud->unset_add();
-		// $crud->unset_delete();
+		$crud->unset_add();
+		$crud->unset_delete();
 
-		// $this->mPageTitle = 'Users';
-		// $this->render_crud();
+		$this->mPageTitle = 'Users';
+		$this->render_crud();
 	}
 
 	// Frontend Seccion Header CRUD
