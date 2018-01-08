@@ -66,7 +66,7 @@ $config['site'] = array(
 			'icon'		=> 'fa fa-dashboard',
 		),
                 'panel' => array(
-			'name'		=> 'Admin Panel',
+			'name'		=> 'Panel de Administrador',
 			'url'		=> 'panel',
 			'icon'		=> 'fa fa-cog',
 			'children'  => array(
@@ -78,7 +78,7 @@ $config['site'] = array(
             
             
 		'user' => array(
-			'name'		=> 'Website Users',
+			'name'		=> 'Usuarios Web',
 			'url'		=> 'user',
 			'icon'		=> 'fa fa-users',
 			
@@ -116,7 +116,7 @@ $config['site'] = array(
 //		),
 		
 		'logout' => array(
-			'name'		=> 'Sign Out',
+			'name'		=> 'Desconectarse',
 			'url'		=> 'panel/logout',
 			'icon'		=> 'fa fa-sign-out',
 		)

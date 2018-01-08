@@ -85,7 +85,7 @@ class Modificaciones extends Admin_Controller {
 		// get list of Frontend user groups
 		$this->load->model('group_model', 'groups');
 		$this->mViewData['groups'] = $this->groups->get_all();
-		$this->mPageTitle = 'Create User';
+		$this->mPageTitle = 'Crear Usuario';
 
 		$this->mViewData['form'] = $form;
 		$this->render('user/create');
@@ -95,7 +95,7 @@ class Modificaciones extends Admin_Controller {
 	public function group()
 	{
 		$crud = $this->generate_crud('groups');
-		$this->mPageTitle = 'User Groups';
+		$this->mPageTitle = 'Grupo de usuarios';
 		$this->render_crud();
 	}
 
@@ -138,7 +138,7 @@ class Modificaciones extends Admin_Controller {
 		$this->mViewData['target'] = $target;
 
 		$this->mViewData['form'] = $form;
-		$this->mPageTitle = 'Reset User Password';
+		$this->mPageTitle = 'Resetear password de usuario';
 		$this->render('user/reset_password');
 	}
 }

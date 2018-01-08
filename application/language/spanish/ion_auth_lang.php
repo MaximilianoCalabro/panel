@@ -53,26 +53,26 @@ $lang['delete_successful'] 		 	         = 'Usuario eliminado';
 $lang['delete_unsuccessful'] 		 	     = 'No se ha podido Eliminar el usuario';
 
 // Groups
-$lang['group_creation_successful']  = 'Group created Successfully';
-$lang['group_already_exists']       = 'Group name already taken';
-$lang['group_update_successful']    = 'Group details updated';
-$lang['group_delete_successful']    = 'Group deleted';
-$lang['group_delete_unsuccessful'] 	= 'Unable to delete group';
-$lang['group_delete_notallowed']    = 'Can\'t delete the administrators\' group';
-$lang['group_name_required'] 		= 'Group name is a required field';
+$lang['group_creation_successful']  = 'Grupo creado exitosamente';
+$lang['group_already_exists']       = 'Nombre de grupo ya existente';
+$lang['group_update_successful']    = 'Detalles del grupo actualizados';
+$lang['group_delete_successful']    = 'Grupo borrado';
+$lang['group_delete_unsuccessful'] 	= 'Imposible borrar grupo';
+$lang['group_delete_notallowed']    = 'Imposible borrar el grupo de administradores';
+$lang['group_name_required'] 		= 'Nombre de Grupo es un campo obligatorio';
 $lang['group_name_admin_not_alter'] = 'Admin group name can not be changed';
 
 // Activation Email
-$lang['email_activation_subject']            = 'Activación de la cuenta';
-$lang['email_activate_heading']    = 'Activate account for %s';
-$lang['email_activate_subheading'] = 'Please click this link to %s.';
-$lang['email_activate_link']       = 'Activate Your Account';
+$lang['email_activation_subject']  = 'Activación de la cuenta';
+$lang['email_activate_heading']    = 'Activación de la cuenta para %s';
+$lang['email_activate_subheading'] = 'Por favor presione este link para %s.';
+$lang['email_activate_link']       = 'Activar su cuenta';
 // Forgot Password Email
 $lang['email_forgotten_password_subject']    = 'Verificación de contraseña olvidada';
-$lang['email_forgot_password_heading']    = 'Reset Password for %s';
-$lang['email_forgot_password_subheading'] = 'Please click this link to %s.';
-$lang['email_forgot_password_link']       = 'Reset Your Password';
+$lang['email_forgot_password_heading']    = 'Resetear Password para %s';
+$lang['email_forgot_password_subheading'] = 'Por favor presione este link para %s.';
+$lang['email_forgot_password_link']       = 'Resetear tu Password';
 // New Password Email
 $lang['email_new_password_subject']          = 'Nueva Contraseña';
-$lang['email_new_password_heading']    = 'New Password for %s';
-$lang['email_new_password_subheading'] = 'Your password has been reset to: %s';
+$lang['email_new_password_heading']    = 'Nuevo Password para %s';
+$lang['email_new_password_subheading'] = 'Tu Password ha sido reseteado a: %s';

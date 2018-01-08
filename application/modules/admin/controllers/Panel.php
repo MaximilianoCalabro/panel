@@ -32,7 +32,7 @@ class Panel extends Admin_Controller {
 		// only webmaster can reset Admin User password
 		if ( $this->ion_auth->in_group(array('webmaster', 'admin')) )
 		{
-			$crud->add_action('Reset Password', '', $this->mModule.'/panel/admin_user_reset_password', 'fa fa-repeat');
+			$crud->add_action('Resetear Password', '', $this->mModule.'/panel/admin_user_reset_password', 'fa fa-repeat');
 		}
 		
 		// disable direct create / delete Admin User
@@ -83,7 +83,7 @@ class Panel extends Admin_Controller {
 		$groups = $this->ion_auth->groups()->result();
 		unset($groups[0]);	// disable creation of "webmaster" account
 		$this->mViewData['groups'] = $groups;
-		$this->mPageTitle = 'Create Admin User';
+		$this->mPageTitle = 'Crear usuario Admin';
 
 		$this->mViewData['form'] = $form;
 		$this->render('panel/admin_user_create');
@@ -93,7 +93,7 @@ class Panel extends Admin_Controller {
 	public function admin_user_group()
 	{
 		$crud = $this->generate_crud('admin_groups');
-		$this->mPageTitle = 'Admin User Groups';
+		$this->mPageTitle = 'Grupo de usuarios Admin';
 		$this->render_crud();
 	}
 
@@ -126,7 +126,7 @@ class Panel extends Admin_Controller {
 		$this->mViewData['target'] = $target;
 
 		$this->mViewData['form'] = $form;
-		$this->mPageTitle = 'Reset Admin User Password';
+		$this->mPageTitle = 'Resetear password del usuario Admin';
 		$this->render('panel/admin_user_reset_password');
 	}
 
@@ -143,7 +143,7 @@ class Panel extends Admin_Controller {
 		$form1->set_rule_group('panel/account_change_password');
 		$this->mViewData['form2'] = $form2;
 
-		$this->mPageTitle = "Account Settings";
+		$this->mPageTitle = "Configuración de la cuenta";
 		$this->render('panel/account');
 	}
 

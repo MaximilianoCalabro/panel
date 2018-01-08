@@ -16,7 +16,7 @@ class Util extends Admin_Controller {
 		$this->mBackupSqlFiles = $files;
 		$this->mLatestSqlFile = $sql_path.'/latest.sql';
 
-		$this->mPageTitle = 'Utilities';
+		$this->mPageTitle = 'Utilidades';
 		$this->mViewData['backup_sql_files'] = $this->mBackupSqlFiles;
 		$this->mViewData['latest_sql_file'] = $this->mLatestSqlFile;
 	}

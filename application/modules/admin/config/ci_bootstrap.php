@@ -59,7 +59,7 @@ $config['ci_bootstrap'] = array(
 	// Menu items
 	'menu' => array(
 		'home' => array(
-			'name'		=> 'Home',
+			'name'		=> 'Inicio',
 			'url'		=> '',
 			'icon'		=> 'fa fa-home',
 		),
@@ -98,15 +98,15 @@ $config['ci_bootstrap'] = array(
 			)
 		),
 		'util' => array(
-			'name'		=> 'Utilities',
+			'name'		=> 'Utilidades',
 			'url'		=> 'util',
 			'icon'		=> 'fa fa-cogs',
 			'children'  => array(
-				'Database Versions'		=> 'util/list_db',
+				'Version de Database'	=> 'util/list_db',
 			)
 		),
 		'logout' => array(
-			'name'		=> 'Sign Out',
+			'name'		=> 'Desconectarse',
 			'url'		=> 'panel/logout',
 			'icon'		=> 'fa fa-sign-out',
 		)

@@ -25,7 +25,7 @@ class User extends Admin_Controller {
 		// only webmaster and admin can reset user password
 		if ($this->ion_auth->in_group(array('webmaster', 'admin')))
 		{
-			$crud->add_action('Reset Password', '', 'admin/user/reset_password', 'fa fa-repeat');
+			$crud->add_action('Resetear Password', '', 'admin/user/reset_password', 'fa fa-repeat');
 		}
 
 		// disable direct create / delete Frontend User
@@ -138,7 +138,7 @@ class User extends Admin_Controller {
 		$this->mViewData['target'] = $target;
 
 		$this->mViewData['form'] = $form;
-		$this->mPageTitle = 'Reset User Password';
+		$this->mPageTitle = 'Resetear password de usuario';
 		$this->render('user/reset_password');
 	}
 }
