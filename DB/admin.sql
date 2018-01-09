@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-01-2018 a las 16:05:21
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.2.0
+-- Tiempo de generación: 10-01-2018 a las 00:19:11
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -86,11 +86,10 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`) VALUES
-(1, '127.0.0.1', 'webmaster', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900190, 1515414511, 1, 'Webmaster', ''),
+(1, '127.0.0.1', 'webmaster', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900190, 1515539767, 1, 'Webmaster', ''),
 (2, '127.0.0.1', 'admin', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900228, 1514845116, 1, 'Admin', ''),
 (3, '127.0.0.1', 'manager', '$2y$08$snzIJdFXvg/rSHe0SndIAuvZyjktkjUxBXkrrGdkPy1K6r5r/dMLa', NULL, NULL, NULL, NULL, NULL, NULL, 1451900430, 1465489585, 1, 'Manager', ''),
-(4, '127.0.0.1', 'staff', '$2y$08$NigAXjN23CRKllqe3KmjYuWXD5iSRPY812SijlhGeKfkrMKde9da6', NULL, NULL, NULL, NULL, NULL, NULL, 1451900439, 1465489590, 1, 'Staff', ''),
-(5, '::1', 'nkstudios', '$2y$08$ZVYPo7sqm63T5kg5EpshGObeosDymwQWwKNInJTW2SRIQ8mIJciSi', NULL, NULL, NULL, NULL, NULL, NULL, 1514901359, 1514901374, 1, 'nkstudios', '');
+(4, '127.0.0.1', 'staff', '$2y$08$NigAXjN23CRKllqe3KmjYuWXD5iSRPY812SijlhGeKfkrMKde9da6', NULL, NULL, NULL, NULL, NULL, NULL, 1451900439, 1465489590, 1, 'Staff', '');
 
 -- --------------------------------------------------------
 
@@ -112,8 +111,7 @@ INSERT INTO `admin_users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
-(4, 4, 4),
-(5, 5, 2);
+(4, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -221,93 +219,6 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seccion_chesse`
---
-
-CREATE TABLE `seccion_chesse` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
-  `imagen` varchar(250) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seccion_contact`
---
-
-CREATE TABLE `seccion_contact` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `texto1` varchar(200) COLLATE utf8_bin NOT NULL,
-  `texto2` varchar(200) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `seccion_contact`
---
-
-INSERT INTO `seccion_contact` (`id`, `titulo`, `texto1`, `texto2`) VALUES
-(1, 'Cantactenos', 'CP 6343 – Villa Maza Provincia de Buenos Aires, Argentina', '(0293)5489093');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seccion_header`
---
-
-CREATE TABLE `seccion_header` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
-  `imagen` varchar(300) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seccion_location`
---
-
-CREATE TABLE `seccion_location` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `texto` text COLLATE utf8_bin NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
-  `imagen` varchar(200) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `seccion_location`
---
-
-INSERT INTO `seccion_location` (`id`, `titulo`, `texto`, `nombre`, `imagen`) VALUES
-(1, 'Ubicación', '<p>\r\n	Nuestra Planta se encuentra en la localidad de Villa Maza, partido de Adolfo Alsina en el Centro Oeste de la Provincia de Buenos Aires y a escasos kil&oacute;metros de La Pampa. (Meridiano V) por la ruta interprovincial 14.</p>\r\n', '', '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seccion_plant`
---
-
-CREATE TABLE `seccion_plant` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `texto` text COLLATE utf8_bin NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
-  `imagen` varchar(100) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `seccion_plant`
---
-
-INSERT INTO `seccion_plant` (`id`, `titulo`, `texto`, `nombre`, `imagen`) VALUES
-(1, 'Nuestra Planta', '<div>\r\n	Contamos con una renovada planta elaboradora donde la higiene y minucioso cuidado de los productos que fabricamos es nuestra obsesi&oacute;n.</div>\r\n<div>\r\n	Contamos con adecuados sistemas de filtros sanitarios, c&aacute;maras y dep&oacute;sitos que dan al producto final condiciones &oacute;ptimas que podemos orgullosamente mostrar y garantizar.</div>\r\n<div>\r\n	La planta se encuentra a escasos kil&oacute;metros del lugar de origen de la leche que diariamente se recolecta, tambos propios y de vecinos que aportan la materia prima encuadrada dentro de los m&aacute;s altos par&aacute;metros de calidad. Menos de 30.000 bacterias por cm3 antes de la pasteurizaci&oacute;n.</div>\r\n', '', '');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `seccion_who`
 --
 
@@ -315,8 +226,8 @@ CREATE TABLE `seccion_who` (
   `id` int(11) NOT NULL,
   `titulo` varchar(25) COLLATE utf8_bin NOT NULL,
   `subtitulo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `texto1` varchar(1000) COLLATE utf8_bin NOT NULL,
-  `texto2` varchar(1000) COLLATE utf8_bin NOT NULL
+  `texto1` varchar(500) COLLATE utf8_bin NOT NULL,
+  `texto2` varchar(500) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -324,7 +235,7 @@ CREATE TABLE `seccion_who` (
 --
 
 INSERT INTO `seccion_who` (`id`, `titulo`, `subtitulo`, `texto1`, `texto2`) VALUES
-(1, 'QUIENES SOMOS', 'Lácteos La Unión', 'Pertenece a La Unión de Schachenmayr S.A. una empresa familiar que desde 1960 produce lácteos en la cuenca lechera del oeste, esta se caracteriza por la alta calidad natural de la leche producida principalmente  a base de pasturas de alfalfa y verdeos de invierno.  					Su fundador Federico Schachenmayr, luego de sus comienzos en una de las empresas pioneras de la lechería Argentina, Quelac S.A. con su reconocida marca Bavaria, (empresa fundada por Don Francisco Huber por los años 1913. Decidió radicarse en esta región para desarrollar su pasión, la actividad agrícola ganadera y tambera.  					En sus comienzos se producían mayormente quesos de pasta Dura. En los últimos años se fueron incorporando nuevos productos a la línea.', 'Los Productos “LA UNION” se caracterizan por el proceso productivo tradicional y artesanal con el se produce, elaborado con leche de tambos propios y de vecinos en menor medida, lo que hace que el tiempo que transcurre entre el ordeñe y la elaboración del queso sea muy corto ayudando a que la lecha mantenga sus cualidades inalterables.  					Nuestros lácteos son elaborados en establecimientos bajo control de brucelosis y tuberculosis. Nuestra leche se encuadra debajo de 28.000 bacterias antes de la pasteurización según la estadística de los últimos 6 años, no contiene aditamentos que no sean los que un proceso artesanal requieren, por lo que se garantiza la utilización de elementos puramente naturales.  					Nuestro objetivo es ofrecer un producto diferenciado que satisfaga las condiciones que un queso de calidad requiere: fundamentalmente sabor, aroma, cuerpo, textura, estacionamiento e higiene.');
+(1, 'Lacteos', 'Lácteos LA UNION', 'Pertenece a La Unión de Schachenmayr S.A. una empresa familiar que desde 1960 produce lácteos en la cuenca lechera del oeste, esta se caracteriza por la alta calidad natural de la leche producida principalmente  a base de pasturas de alfalfa y verdeos de invierno.', 'Su fundador Federico Schachenmayr, luego de sus comienzos en una de las empresas pioneras de la lechería Argentina, Quelac S.A. con su reconocida marca Bavaria, (empresa fundada por Don Francisco Huber por los años 1913. Decidió radicarse en esta región para desarrollar su pasión, la actividad agrícola ganadera y tambera.');
 
 -- --------------------------------------------------------
 
@@ -445,36 +356,6 @@ ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `seccion_chesse`
---
-ALTER TABLE `seccion_chesse`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `seccion_contact`
---
-ALTER TABLE `seccion_contact`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `seccion_header`
---
-ALTER TABLE `seccion_header`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `seccion_location`
---
-ALTER TABLE `seccion_location`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `seccion_plant`
---
-ALTER TABLE `seccion_plant`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `seccion_who`
 --
 ALTER TABLE `seccion_who`
@@ -512,13 +393,13 @@ ALTER TABLE `admin_login_attempts`
 -- AUTO_INCREMENT de la tabla `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `admin_users_groups`
 --
 ALTER TABLE `admin_users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `api_access`
@@ -557,40 +438,10 @@ ALTER TABLE `login_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `seccion_chesse`
---
-ALTER TABLE `seccion_chesse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `seccion_contact`
---
-ALTER TABLE `seccion_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `seccion_header`
---
-ALTER TABLE `seccion_header`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `seccion_location`
---
-ALTER TABLE `seccion_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `seccion_plant`
---
-ALTER TABLE `seccion_plant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de la tabla `seccion_who`
 --
 ALTER TABLE `seccion_who`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
