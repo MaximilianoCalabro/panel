@@ -75,6 +75,15 @@ class Pagina extends Admin_Controller {
 		$crud->columns('titulo', 'nombre', 'imagen');
 	}
 
+	// Frontend Seccion Nuestros Quesos IMG CRUD
+	public function seccion_img()
+	{
+		$crud = $this->generate_crud('seccion_img');
+		$this->mPageTitle = 'Nuestros Quesos Imagenes';
+		$this->render_crud();
+		$crud->columns('titulo', 'ruta');
+	}
+
 	// Frontend Seccion Ubicación CRUD
 	public function seccion_location()
 	{

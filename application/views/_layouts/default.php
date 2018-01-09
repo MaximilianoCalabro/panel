@@ -32,6 +32,9 @@
     <source src="video/4.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>--> <!--CODIGO PARA PONER VIDEOS-->
+
+    <!--  <input type="file" name="saras"> --> 
+    
 </head>
 <body>
 

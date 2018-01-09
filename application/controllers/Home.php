@@ -17,6 +17,7 @@ public function __construct()
 		$this->load->model('SeccionHeader_Model');
 		$this->load->model('SeccionLocation_Model');
 		$this->load->model('SeccionPlant_Model');
+		$this->load->model('SeccionImage_Model');
 		$this->load->model('SeccionWho_Model');
 	}
 	public function index()
