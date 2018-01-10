@@ -35,17 +35,23 @@ class Pagina extends Admin_Controller {
 		$crud->unset_add();
 		$crud->unset_delete();
 
-		$this->mPageTitle = 'Users';
+		$this->mPageTitle = 'Usuarios';
 		$this->render_crud();
 	}
+
 
 	// Frontend Seccion Header CRUD
 	public function seccion_header()
 	{
 		$crud = $this->generate_crud('seccion_header');
 		$this->mPageTitle = 'Cabecera';
+		$crud->required_fields('titulo','ruta');
+		$crud->set_field_upload('ruta','public/images/header'); // Subir imagenes
+		$crud->columns('titulo','ruta');
+		$crud->display_as('ruta',"Imagen"); // Cambiar nombre visual
+		$crud->display_as('titulo',"Título");
+		$crud->set_subject('Cabecera'); // Cambiar nombre visual de tabla
 		$this->render_crud();
-		$crud->columns('nombre','imagen');
 	}
 
 	// Frontend Seccion Quienes Somos CRUD
@@ -53,8 +59,16 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_who');
 		$this->mPageTitle = 'Quienes Somos';
-		$this->render_crud();
 		$crud->columns('titulo', 'subtitulo', 'texto1', 'texto2');
+		$crud->display_as('titulo',"Título");
+		$crud->display_as('subtitulo',"Sub-título");
+		$crud->display_as('texto1',"1º parrafo"); // Cambiar nombre visual
+		$crud->display_as('texto2',"2º parrafo");
+		$crud->set_subject('Quienes Somos'); // Cambiar nombre visual de tabla
+		$crud->unset_add();
+		$crud->unset_delete();
+		$this->render_crud();
+		
 	}
 
 	// Frontend Seccion Nuestra Planta CRUD
@@ -62,8 +76,26 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_plant');
 		$this->mPageTitle = 'Nuestra Planta';
+		$crud->display_as('titulo',"Título");
+		$crud->set_subject('Nuestra Planta');
+		$crud->columns('titulo', 'texto');
+		$crud->unset_add();
+		$crud->unset_delete();
 		$this->render_crud();
-		$crud->columns('titulo', 'texto', 'nombre', 'imagen');
+	}
+
+	// Frontend Seccion Nuestra Planta IMG CRUD
+	public function seccion_img_pla()
+	{
+		$crud = $this->generate_crud('seccion_img_pla');
+		$this->mPageTitle = 'Imagenes Planta';
+		$crud->required_fields('titulo','ruta');
+		$crud->set_field_upload('ruta','public/images/planta');
+		$crud->columns('titulo', 'ruta');
+		$crud->display_as('ruta',"Imagen");
+		$crud->display_as('titulo',"Título");
+		$crud->set_subject('IMG Planta');
+		$this->render_crud();
 	}
 
 	// Frontend Seccion Nuestros Quesos CRUD
@@ -71,8 +103,25 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_chesse');
 		$this->mPageTitle = 'Nuestros Quesos';
+		$crud->columns('titulo');
+		$crud->display_as('titulo',"Título");
+		$crud->unset_add();
+		$crud->unset_delete();
 		$this->render_crud();
-		$crud->columns('titulo', 'nombre', 'imagen');
+	}
+
+	// Frontend Seccion Nuestros Quesos IMG CRUD
+	public function seccion_img_che()
+	{
+		$crud = $this->generate_crud('seccion_img_che');
+		$this->mPageTitle = 'Imagenes Quesos';
+		$crud->required_fields('titulo','ruta');
+		$crud->set_field_upload('ruta','public/images/quesos');
+		$crud->columns('titulo', 'ruta');
+		$crud->display_as('ruta',"Imagen");
+		$crud->display_as('titulo',"Título");
+		$crud->set_subject('IMG Quesos');
+		$this->render_crud();
 	}
 
 	// Frontend Seccion Ubicación CRUD
@@ -80,8 +129,26 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_location');
 		$this->mPageTitle = 'Ubicacion';
+		$crud->set_subject('Ubicación');
+		$crud->columns('titulo', 'texto');
+		$crud->display_as('titulo',"Título");
+		$crud->unset_add();
+		$crud->unset_delete();
 		$this->render_crud();
-		$crud->columns('titulo', 'texto', 'nombre', 'imagen');
+	}
+
+	// Frontend Seccion Ubicación IMG CRUD
+	public function seccion_img_loc()
+	{
+		$crud = $this->generate_crud('seccion_img_loc');
+		$this->mPageTitle = 'Imagenes Ubicación';
+		$crud->required_fields('titulo','ruta');
+		$crud->set_field_upload('ruta','public/images/ubicacion');
+		$crud->columns('titulo', 'ruta');
+		$crud->display_as('ruta',"Imagen");
+		$crud->display_as('titulo',"Título");
+		$crud->set_subject('IMG Ubicación');
+		$this->render_crud();
 	}
 
 	// Frontend Seccion Contactenos CRUD
@@ -89,8 +156,13 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_contact');
 		$this->mPageTitle = 'Contactenos';
-		$this->render_crud();
 		$crud->columns('titulo','texto1','texto2');
+		$crud->display_as('titulo',"Título");
+		$crud->display_as('texto1',"Dirección");
+		$crud->display_as('texto2',"Teléfono");
+		$crud->unset_add();
+		$crud->unset_delete();
+		$this->render_crud();
 	}
 	
 }

@@ -32,6 +32,8 @@
     <source src="video/4.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>--> <!--CODIGO PARA PONER VIDEOS-->
+
+    <!--  <input type="file" name="saras"> --> 
 </head>
 <body>
 
@@ -123,40 +125,33 @@
     <section id="quienes-somos">
         <div class="container">
             <div class="row">
+                <?php foreach ($who->result() as $fila): ?>
                 <div class="col-md-12">
                     <div class="section-title">
                         <h1>
-                            <?php foreach ($who->result() as $fila): ?>
                             <span><?php echo $fila ->titulo ; ?></span>
-                            <?php endforeach; ?>
                         </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
-
+                
                 <div class="col-md-12 col-sm-6 st-service">
                     
                     <h2>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->subtitulo ; ?></span>
-                        <?php endforeach; ?>
                     </h2>
                     <br>
                     <p>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto1 ; ?></span>
-                        <?php endforeach; ?>
                     </p>
                     
                     <br>
 
                     <p>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto2 ; ?></span>
-                        <?php endforeach; ?>
                     </p>
                 </div>
-
+                <?php endforeach; ?>
                 <!--<div class="col-md-4 col-sm-6 st-service">
                     <h2><i class="fa fa-cogs"></i> Web Developement</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero autem, magni veritatis, optio dolor.</p>
@@ -260,7 +255,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>NUESTROS QUESOS</h1>
+                        <h1>
+                            <?php foreach ($che->result() as $fila): ?>
+                                <span><?php echo $fila ->titulo ; ?></span>
+                            <?php endforeach; ?>
+                        </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
@@ -386,17 +385,17 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/00.jpg" alt="">
+                                <img src="<?php echo base_url("public/images/ubicacion/00.jpg");?>" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/01.jpg" alt="">           
+                                <img src="<?php echo base_url("public/images/ubicacion/01.jpg");?>" alt="">           
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/02.jpg" alt="">
+                                <img src="<?php echo base_url("public/images/ubicacion/02.jpg");?>" alt="">
                                 </div>
                             </div>
                             <div class="item">
