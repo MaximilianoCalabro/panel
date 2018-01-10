@@ -34,7 +34,6 @@
     </video>--> <!--CODIGO PARA PONER VIDEOS-->
 
     <!--  <input type="file" name="saras"> --> 
-    
 </head>
 <body>
 
@@ -126,40 +125,33 @@
     <section id="quienes-somos">
         <div class="container">
             <div class="row">
+                <?php foreach ($who->result() as $fila): ?>
                 <div class="col-md-12">
                     <div class="section-title">
                         <h1>
-                            <?php foreach ($who->result() as $fila): ?>
                             <span><?php echo $fila ->titulo ; ?></span>
-                            <?php endforeach; ?>
                         </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
-
+                
                 <div class="col-md-12 col-sm-6 st-service">
                     
                     <h2>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->subtitulo ; ?></span>
-                        <?php endforeach; ?>
                     </h2>
                     <br>
                     <p>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto1 ; ?></span>
-                        <?php endforeach; ?>
                     </p>
                     
                     <br>
 
                     <p>
-                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto2 ; ?></span>
-                        <?php endforeach; ?>
                     </p>
                 </div>
-
+                <?php endforeach; ?>
                 <!--<div class="col-md-4 col-sm-6 st-service">
                     <h2><i class="fa fa-cogs"></i> Web Developement</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero autem, magni veritatis, optio dolor.</p>

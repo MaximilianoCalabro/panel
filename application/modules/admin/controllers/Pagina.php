@@ -35,7 +35,7 @@ class Pagina extends Admin_Controller {
 		$crud->unset_add();
 		$crud->unset_delete();
 
-		$this->mPageTitle = 'Users';
+		$this->mPageTitle = 'Usuarios';
 		$this->render_crud();
 	}
 
@@ -44,8 +44,10 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_header');
 		$this->mPageTitle = 'Cabecera';
+		$crud->required_fields('titulo','ruta');
+		$crud->set_field_upload('ruta','public/images'); // Subir imagenes
+		$crud->columns('titulo','ruta');
 		$this->render_crud();
-		$crud->columns('nombre','imagen');
 	}
 
 	// Frontend Seccion Quienes Somos CRUD
@@ -53,8 +55,12 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_who');
 		$this->mPageTitle = 'Quienes Somos';
-		$this->render_crud();
 		$crud->columns('titulo', 'subtitulo', 'texto1', 'texto2');
+		$crud->display_as('texto1',"1º parrafo"); // Cambiar nombre visual
+		$crud->set_subject('Quienes Somos'); // Cambiar nombre visual de tabla
+		$crud->unset_add();
+		$this->render_crud();
+		
 	}
 
 	// Frontend Seccion Nuestra Planta CRUD
@@ -79,7 +85,7 @@ class Pagina extends Admin_Controller {
 	public function seccion_img()
 	{
 		$crud = $this->generate_crud('seccion_img');
-		$this->mPageTitle = 'Nuestros Quesos Imagenes';
+		$this->mPageTitle = 'Quesos Imagenes';
 		$this->render_crud();
 		$crud->columns('titulo', 'ruta');
 	}
