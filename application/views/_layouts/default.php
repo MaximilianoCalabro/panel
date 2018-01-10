@@ -361,25 +361,23 @@
     <section id="ubicacion">
         <div class="container-fluid">
             <div class="row">
+                <?php foreach ($loc->result() as $fila): ?>
                 <div class="col-sm-6">
                     <div class="about-us text-left">
                         <div class="section-title">
                             <h1>
-                                <?php foreach ($loc->result() as $fila): ?>
                                 <span><?php echo $fila ->titulo ; ?></span>
-                                <?php endforeach; ?>
                             </h1>
                             <span class="st-border"></span>
                         </div>
                     </div>
                     <div class="about-us text-center">
                         <p>
-                            <?php foreach ($loc->result() as $fila): ?>
                             <span><?php echo $fila ->texto ; ?></span>
-                            <?php endforeach; ?>
                         </p>
                     </div>
                 </div>
+                <?php endforeach; ?>
                 <div class="col-sm-6 our-office">
                     <div id="office-carousel" class="carousel slide" data-ride="carousel">          
                         <div class="carousel-inner">
