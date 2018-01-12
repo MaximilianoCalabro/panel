@@ -91,12 +91,13 @@ $config['ci_bootstrap'] = array(
 				'Cabecera'			=> 'pagina/seccion_header',
 				'Quienes Somos'		=> 'pagina/seccion_who',
 				'Nuestra Planta'	=> 'pagina/seccion_plant',
-				'Planta IMG'		=> 'pagina/seccion_img_pla',
+				'Planta IMG'		=> 'pagina/seccion_imgplant',
 				'Nuestros Quesos'	=> 'pagina/seccion_chesse',
-				'Quesos IMG'		=> 'pagina/seccion_img_che',
+				'Quesos IMG'		=> 'pagina/seccion_imgche',
 				'Ubicación'			=> 'pagina/seccion_location',
-				'Ubicación IMG'		=> 'pagina/seccion_img_loc',
+				'Ubicación IMG'		=> 'pagina/seccion_imgloc',
 				'Contactenos'		=> 'pagina/seccion_contact',
+			    'Imágenes'		    => 'pagina/imagenes',
 
 			)
 		),

@@ -34,6 +34,7 @@
     </video>--> <!--CODIGO PARA PONER VIDEOS-->
 
     <!--  <input type="file" name="saras"> --> 
+    
 </head>
 <body>
 
@@ -47,51 +48,20 @@
 
     <!-- SLIDER -->
     <section id="slider">
-        <div id="home-carousel" class="carousel slide" data-ride="carousel">            
-            <div class="carousel-inner">
-                <div class="item active" style="background-image: url(<?php echo base_url("public/images/header/00.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 01</h1>
-                            </div>
-                        </div>
-                    </div>                  
+        <div id="home-carousel" class="carousel slide" data-ride="carousel" style="width:100%">            
+            <!-- Indicators -->
+            <div class="carousel-inner" role="listbox">
+                <?php for ($i=0; $i<count($cabecera); $i++): ?>
+                <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$cabecera[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                 </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/01.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 02</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/02.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 03</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/03.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 04</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>      
-        </div> <!--/#home-carousel--> 
+                <?php endfor; ?>
+            </div>
+
+            <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+            <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+        </div><!--/#home-carousel--> 
     </section>
     <!-- /SLIDER -->
-
 
     <!-- HEADER -->
     <header id="header">
@@ -125,33 +95,40 @@
     <section id="quienes-somos">
         <div class="container">
             <div class="row">
-                <?php foreach ($who->result() as $fila): ?>
                 <div class="col-md-12">
                     <div class="section-title">
                         <h1>
+                            <?php foreach ($who->result() as $fila): ?>
                             <span><?php echo $fila ->titulo ; ?></span>
+                            <?php endforeach; ?>
                         </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
-                
+
                 <div class="col-md-12 col-sm-6 st-service">
                     
                     <h2>
+                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->subtitulo ; ?></span>
+                        <?php endforeach; ?>
                     </h2>
                     <br>
                     <p>
+                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto1 ; ?></span>
+                        <?php endforeach; ?>
                     </p>
                     
                     <br>
 
                     <p>
+                        <?php foreach ($who->result() as $fila): ?>
                         <span><?php echo $fila ->texto2 ; ?></span>
+                        <?php endforeach; ?>
                     </p>
                 </div>
-                <?php endforeach; ?>
+
                 <!--<div class="col-md-4 col-sm-6 st-service">
                     <h2><i class="fa fa-cogs"></i> Web Developement</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero autem, magni veritatis, optio dolor.</p>
@@ -169,7 +146,7 @@
                 <div class="col-md-12">
                     <div class="section-title">
                         <h1>
-                            <?php foreach ($plant->result() as $fila): ?>
+                            <?php foreach ($plan->result() as $fila): ?>
                             <span><?php echo $fila ->titulo ; ?></span>
                             <?php endforeach; ?>
                         </h1>
@@ -180,7 +157,7 @@
                 <div class="portfolio-wrapper" >
                     <div class="col-md-12">
                         <p>
-                            <?php foreach ($plant->result() as $fila): ?>
+                            <?php foreach ($plan->result() as $fila): ?>
                             <span><?php echo $fila ->texto ; ?></span>
                             <?php endforeach; ?>
                         </p>
@@ -257,7 +234,7 @@
                     <div class="section-title">
                         <h1>
                             <?php foreach ($che->result() as $fila): ?>
-                                <span><?php echo $fila ->titulo ; ?></span>
+                            <span><?php echo $fila ->titulo ; ?></span>
                             <?php endforeach; ?>
                         </h1>
                         <span class="st-border"></span>
@@ -266,134 +243,59 @@
             </div>
         </div>
 
-        <div id="home-carousel2" class="carousel slide" data-ride="carousel">           
-            <div class="carousel-inner">
-                <div class="item active" style="background-image: url(http://localhost/panel/public/images/slider/00.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>MOZZARELLA</h2>
-                            </div>
-                        </div>
-                    </div>                  
+        <div id="home-carousel" class="carousel slide" data-ride="carousel" style="width:100%">            
+            <div class="carousel-inner" role="listbox">
+                <?php for ($i=0; $i<count($queso); $i++): ?>
+                <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$queso[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                 </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/01.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>PATEGRAS</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/02.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>TYBO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/03.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>REGGIANITO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/04.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>SARDO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/05.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>CREMOSO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/06.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>CUARTIROLO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/07.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>PORT SALUT</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/08.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>GOUDA</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <a class="home-carousel-left" href="#home-carousel2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="home-carousel-right" href="#home-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>      
-        </div> <!--/#home-carousel--> 
+                <?php endfor; ?>
+            </div>
+
+            <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+            <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+        </div><!--/#home-carousel--> 
     </section>
     <!-- /SLIDER2 -->
-
 
     <!-- UBICACION -->
     <section id="ubicacion">
         <div class="container-fluid">
             <div class="row">
-                <?php foreach ($loc->result() as $fila): ?>
                 <div class="col-sm-6">
                     <div class="about-us text-left">
                         <div class="section-title">
                             <h1>
+                                <?php foreach ($loc->result() as $fila): ?>
                                 <span><?php echo $fila ->titulo ; ?></span>
+                                <?php endforeach; ?>
                             </h1>
                             <span class="st-border"></span>
                         </div>
                     </div>
                     <div class="about-us text-center">
                         <p>
+                            <?php foreach ($loc->result() as $fila): ?>
                             <span><?php echo $fila ->texto ; ?></span>
+                            <?php endforeach; ?>
                         </p>
                     </div>
                 </div>
-                <?php endforeach; ?>
                 <div class="col-sm-6 our-office">
                     <div id="office-carousel" class="carousel slide" data-ride="carousel">          
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="<?php echo base_url("public/images/ubicacion/00.jpg");?>" alt="">
+                                <img src="http://localhost/panel/public/images/office/00.jpg" alt="">
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="<?php echo base_url("public/images/ubicacion/01.jpg");?>" alt="">           
+                                <img src="http://localhost/panel/public/images/office/01.jpg" alt="">           
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="<?php echo base_url("public/images/ubicacion/02.jpg");?>" alt="">
+                                <img src="http://localhost/panel/public/images/office/02.jpg" alt="">
                                 </div>
                             </div>
                             <div class="item">
@@ -413,7 +315,6 @@
         </div>
     </section>
     <!-- /UBICACION -->
-    
     
     <!-- CONTACTENOS -->
     <section id="contact">
@@ -479,7 +380,7 @@
                 <!-- SOCIAL ICONS -->
                 <div class="col-sm-6 col-sm-push-6 footer-social-icons">
                     <span></span>
-                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net">NKStudios</a></p>
+                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net/new" target=_blank>NKStudios</a></p>
                 </div>
                 <!-- /SOCIAL ICONS -->
             </div>
@@ -487,14 +388,11 @@
     </footer>
     <!-- /FOOTER -->
 
-
     <!-- Scroll-up -->
     <div class="scroll-up">
         <ul><li><a href="#header"><i class="fa fa-angle-up"></i></a></li></ul>
     </div>
 
-    
-    
     <!-- JS -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery.min.js"></script><!-- jQuery -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/bootstrap.min.js"></script><!-- Bootstrap -->
@@ -511,17 +409,17 @@
 
 
 </body>
-<script>
-    $(document).ready(function() {
-        // REQUIRES jquery.livequery
-        $('.google-map iframe:visible').livequery(function() {
-            var mapFrame = $(this);
-            if (!$(mapFrame).hasClass('map-refreshed')) {
-                mapFrame.attr('src', mapFrame.attr('src')+'');
-                mapFrame.addClass('map-refreshed');
-            }
-        });
+    <script>
+        $(document).ready(function() {
+            // REQUIRES jquery.livequery
+            $('.google-map iframe:visible').livequery(function() {
+                var mapFrame = $(this);
+                if (!$(mapFrame).hasClass('map-refreshed')) {
+                    mapFrame.attr('src', mapFrame.attr('src')+'');
+                    mapFrame.addClass('map-refreshed');
+                }
+            });
 
-    });
+        });
     </script>
 </html>

@@ -2583,7 +2583,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 		if(empty($unselected_values) && empty($selected_values))
 		{
-			$input = "Please add {$field_info_type->display_as} first";
+			$input = "Por favor cargue {$field_info_type->display_as} primero";
 		}
 		else
 		{
