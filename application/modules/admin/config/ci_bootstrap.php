@@ -92,7 +92,7 @@ $config['ci_bootstrap'] = array(
 				'Quienes Somos'		=> 'pagina/seccion_who',
 				'Nuestra Planta'	=> 'pagina/seccion_plant',
 				'Nuestros Quesos'	=> 'pagina/seccion_chesse',
-				'UbicaciÃ³n'			=> 'pagina/seccion_location',
+				'Ubicación'			=> 'pagina/seccion_location',
 				'Contactenos'		=> 'pagina/seccion_contact',
 			    'Imagenes'		    => 'pagina/seccion_img',
 

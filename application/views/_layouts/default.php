@@ -258,7 +258,6 @@
     </section>
     <!-- /UBICACION -->
     
-    
     <!-- CONTACTENOS -->
     <section id="contact">
         <div class="container">
@@ -323,7 +322,7 @@
                 <!-- SOCIAL ICONS -->
                 <div class="col-sm-6 col-sm-push-6 footer-social-icons">
                     <span></span>
-                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net">NKStudios</a></p>
+                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net/new" target=_blank>NKStudios</a></p>
                 </div>
                 <!-- /SOCIAL ICONS -->
             </div>
@@ -331,14 +330,11 @@
     </footer>
     <!-- /FOOTER -->
 
-
     <!-- Scroll-up -->
     <div class="scroll-up">
         <ul><li><a href="#header"><i class="fa fa-angle-up"></i></a></li></ul>
     </div>
 
-    
-    
     <!-- JS -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery.min.js"></script><!-- jQuery -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/bootstrap.min.js"></script><!-- Bootstrap -->
@@ -355,17 +351,17 @@
 
 
 </body>
-<script>
-    $(document).ready(function() {
-        // REQUIRES jquery.livequery
-        $('.google-map iframe:visible').livequery(function() {
-            var mapFrame = $(this);
-            if (!$(mapFrame).hasClass('map-refreshed')) {
-                mapFrame.attr('src', mapFrame.attr('src')+'');
-                mapFrame.addClass('map-refreshed');
-            }
-        });
+    <script>
+        $(document).ready(function() {
+            // REQUIRES jquery.livequery
+            $('.google-map iframe:visible').livequery(function() {
+                var mapFrame = $(this);
+                if (!$(mapFrame).hasClass('map-refreshed')) {
+                    mapFrame.attr('src', mapFrame.attr('src')+'');
+                    mapFrame.addClass('map-refreshed');
+                }
+            });
 
-    });
+        });
     </script>
 </html>

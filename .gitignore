@@ -27,3 +27,8 @@ application/composer.lock
 ### SQL backup files ###
 sql/backup/*
 sql/backup/!index.html
+application/models/SeccionImageChesse_Model.php
+application/models/SeccionImageChesse_Model.php
+application/models/SeccionImageLocation_Model.php
+application/models/SeccionImagePlant_Model.php
+application/models/SeccionImageChesse_Model.php

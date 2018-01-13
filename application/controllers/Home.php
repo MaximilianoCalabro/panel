@@ -21,6 +21,7 @@ class Home extends MY_Controller {
 		$this->load->helper('form');
 		//Load email library
 		$this->load->library('email');
+
 	}
 	public function index()
 	{
@@ -48,7 +49,6 @@ class Home extends MY_Controller {
 
         //SECCION_CONTACT
         $this->mViewData['cont'] = $this->SeccionContact_Model->get_seccion_contact()->result();
-       
 
 		$this->render('home');
 	}

@@ -87,6 +87,7 @@ class Pagina extends Admin_Controller {
 		$crud->unset_add();
 		$crud->unset_delete();
         $this->render_crud();
+
 	}
 
 	// Frontend Seccion Nuestros Quesos CRUD
@@ -104,13 +105,12 @@ class Pagina extends Admin_Controller {
         $this->render_crud();
 	}
 
-
 	// Frontend Seccion Ubicación CRUD
 	public function seccion_location()
 	{
 		$crud = $this->generate_crud('seccion_location');
 		$this->mPageTitle = 'Ubicación';
-		
+
 		$crud->set_relation_n_n('imagen','rel_location_imagenes', 'imagenes', 'fk_seccion_location','fk_imagenes', 'titulo_imagen');
 		$crud->display_as('imagen','Imágenes');
 		$crud->columns('titulo', 'texto', 'imagen');
@@ -118,6 +118,7 @@ class Pagina extends Admin_Controller {
         $crud->unset_add();
 		$crud->unset_delete();
         $this->render_crud();
+
 	}
 
 	// Frontend Seccion Contactenos CRUD
@@ -137,6 +138,7 @@ class Pagina extends Admin_Controller {
 	}
 	
 	// Frontend Seccion Imagenes CRUD
+
 	public function seccion_img()
 	{
 		$crud = $this->generate_crud('imagenes');
@@ -149,6 +151,7 @@ class Pagina extends Admin_Controller {
 		
 		$crud->set_field_upload('ruta_imagen','public/images');
 		$crud->required_fields('titulo_imagen','ruta_imagen');
+
 		$crud->set_subject('Imágenes');
 		
         $this->render_crud();
