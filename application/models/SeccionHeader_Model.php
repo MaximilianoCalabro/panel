@@ -9,7 +9,9 @@ class SeccionHeader_Model extends CI_Model {
 		//$this->db->where('demo_blog_posts_tags.post_id', $post_id);
 		//$query = $this->db->get($this->_table);
         
-		$query = $this->db->query('SELECT * FROM seccion_header');
+		$query = $this->db->query('SELECT h.titulo, i.titulo_imagen, i.ruta_imagen FROM seccion_header h, imagenes i, rel_header_imagenes r 
+                                    WHERE h.id = r.fk_seccion_header 
+                                    and r.fk_imagenes = i.id');
 
 		return $query;
 	}

@@ -6,8 +6,8 @@
 		<p class="login-box-msg">Inicia sesión para comenzar</p>
 		<?php echo $form->open(); ?>
 			<?php echo $form->messages(); ?>
-			<?php echo $form->bs3_text('Usuario', 'username', ENVIRONMENT==='development' ? 'webmaster' : ''); ?>
-			<?php echo $form->bs3_password('Password', 'password', ENVIRONMENT==='development' ? 'webmaster' : ''); ?>
+			<?php echo $form->bs3_text('Usuario', 'username'); ?>
+			<?php echo $form->bs3_password('Password', 'password'); ?>
 			<div class="row">
 				<div class="col-xs-8">
 					<div class="checkbox">

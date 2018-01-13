@@ -379,6 +379,8 @@
 	}
 
 /*home-carousel2*/
+
+
 	#home-carousel2  .item {
 		background-position: center top;
 		background-repeat: no-repeat;
@@ -558,7 +560,7 @@
 /* 6. SLIDER 2 */
 
 	#slider2{
-		background-color: #f5f5f5;
+		background-color: #fff;
 		padding-top: 130px;
 		padding-bottom: 120px;
 	}
@@ -612,6 +614,7 @@
 	}
 
 	#planta{
+		background-color: #f5f5f5;
 		padding-top: 130px;
 		padding-bottom: 120px;
 	}

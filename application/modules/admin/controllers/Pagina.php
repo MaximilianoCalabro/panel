@@ -35,23 +35,27 @@ class Pagina extends Admin_Controller {
 		$crud->unset_add();
 		$crud->unset_delete();
 
-		$this->mPageTitle = 'Usuarios';
+		$this->mPageTitle = 'Users';
 		$this->render_crud();
 	}
-
 
 	// Frontend Seccion Header CRUD
 	public function seccion_header()
 	{
 		$crud = $this->generate_crud('seccion_header');
 		$this->mPageTitle = 'Cabecera';
-		$crud->required_fields('titulo','ruta');
-		$crud->set_field_upload('ruta','public/images/header'); // Subir imagenes
-		$crud->columns('titulo','ruta');
-		$crud->display_as('ruta',"Imagen"); // Cambiar nombre visual
-		$crud->display_as('titulo',"Título");
-		$crud->set_subject('Cabecera'); // Cambiar nombre visual de tabla
-		$this->render_crud();
+
+		$crud->set_relation_n_n('imagen','rel_header_imagenes', 'imagenes', 'fk_seccion_header','fk_imagenes', 'titulo_imagen');
+
+		$crud->columns('imagen');
+		$crud->display_as('imagen','Imágenes');
+
+		$crud->unset_add();
+		$crud->unset_delete();
+
+		$crud->set_subject('Cabecera');
+		
+        $this->render_crud();
 	}
 
 	// Frontend Seccion Quienes Somos CRUD
@@ -59,16 +63,14 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_who');
 		$this->mPageTitle = 'Quienes Somos';
+
 		$crud->columns('titulo', 'subtitulo', 'texto1', 'texto2');
-		$crud->display_as('titulo',"Título");
-		$crud->display_as('subtitulo',"Sub-título");
-		$crud->display_as('texto1',"1º parrafo"); // Cambiar nombre visual
-		$crud->display_as('texto2',"2º parrafo");
-		$crud->set_subject('Quienes Somos'); // Cambiar nombre visual de tabla
+		$crud->display_as('texto1','Primer Parrafo');
+
+		$crud->set_subject('Quienes Somos');
 		$crud->unset_add();
 		$crud->unset_delete();
-		$this->render_crud();
-		
+        $this->render_crud();
 	}
 
 	// Frontend Seccion Nuestra Planta CRUD
@@ -76,26 +78,15 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_plant');
 		$this->mPageTitle = 'Nuestra Planta';
-		$crud->display_as('titulo',"Título");
-		$crud->set_subject('Nuestra Planta');
-		$crud->columns('titulo', 'texto');
+
+		$crud->set_relation_n_n('imagen','rel_plant_imagenes', 'imagenes', 'fk_seccion_plant','fk_imagenes', 'titulo_imagen');
+
+		$crud->columns('titulo', 'texto', 'nombre', 'imagen');
+		$crud->display_as('imagen','Imágenes');
+
 		$crud->unset_add();
 		$crud->unset_delete();
-		$this->render_crud();
-	}
-
-	// Frontend Seccion Nuestra Planta IMG CRUD
-	public function seccion_img_pla()
-	{
-		$crud = $this->generate_crud('seccion_img_pla');
-		$this->mPageTitle = 'Imagenes Planta';
-		$crud->required_fields('titulo','ruta');
-		$crud->set_field_upload('ruta','public/images/planta');
-		$crud->columns('titulo', 'ruta');
-		$crud->display_as('ruta',"Imagen");
-		$crud->display_as('titulo',"Título");
-		$crud->set_subject('IMG Planta');
-		$this->render_crud();
+        $this->render_crud();
 	}
 
 	// Frontend Seccion Nuestros Quesos CRUD
@@ -103,52 +94,30 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_chesse');
 		$this->mPageTitle = 'Nuestros Quesos';
-		$crud->columns('titulo');
-		$crud->display_as('titulo',"Título");
+
+		$crud->columns('titulo', 'imagen');
+		$crud->display_as('imagen','Imágenes');
+		$crud->set_relation_n_n('imagen','rel_chesse_imagenes', 'imagenes', 'fk_seccion_chesse','fk_imagenes', 'titulo_imagen');
+		
 		$crud->unset_add();
 		$crud->unset_delete();
-		$this->render_crud();
+        $this->render_crud();
 	}
 
-	// Frontend Seccion Nuestros Quesos IMG CRUD
-	public function seccion_img_che()
-	{
-		$crud = $this->generate_crud('seccion_img_che');
-		$this->mPageTitle = 'Imagenes Quesos';
-		$crud->required_fields('titulo','ruta');
-		$crud->set_field_upload('ruta','public/images/quesos');
-		$crud->columns('titulo', 'ruta');
-		$crud->display_as('ruta',"Imagen");
-		$crud->display_as('titulo',"Título");
-		$crud->set_subject('IMG Quesos');
-		$this->render_crud();
-	}
 
 	// Frontend Seccion Ubicación CRUD
 	public function seccion_location()
 	{
 		$crud = $this->generate_crud('seccion_location');
-		$this->mPageTitle = 'Ubicacion';
-		$crud->set_subject('Ubicación');
-		$crud->columns('titulo', 'texto');
-		$crud->display_as('titulo',"Título");
-		$crud->unset_add();
+		$this->mPageTitle = 'Ubicación';
+		
+		$crud->set_relation_n_n('imagen','rel_location_imagenes', 'imagenes', 'fk_seccion_location','fk_imagenes', 'titulo_imagen');
+		$crud->display_as('imagen','Imágenes');
+		$crud->columns('titulo', 'texto', 'imagen');
+        
+        $crud->unset_add();
 		$crud->unset_delete();
-		$this->render_crud();
-	}
-
-	// Frontend Seccion Ubicación IMG CRUD
-	public function seccion_img_loc()
-	{
-		$crud = $this->generate_crud('seccion_img_loc');
-		$this->mPageTitle = 'Imagenes Ubicación';
-		$crud->required_fields('titulo','ruta');
-		$crud->set_field_upload('ruta','public/images/ubicacion');
-		$crud->columns('titulo', 'ruta');
-		$crud->display_as('ruta',"Imagen");
-		$crud->display_as('titulo',"Título");
-		$crud->set_subject('IMG Ubicación');
-		$this->render_crud();
+        $this->render_crud();
 	}
 
 	// Frontend Seccion Contactenos CRUD
@@ -156,13 +125,32 @@ class Pagina extends Admin_Controller {
 	{
 		$crud = $this->generate_crud('seccion_contact');
 		$this->mPageTitle = 'Contactenos';
+		
 		$crud->columns('titulo','texto1','texto2');
-		$crud->display_as('titulo',"Título");
-		$crud->display_as('texto1',"Dirección");
-		$crud->display_as('texto2',"Teléfono");
+
+		$crud->display_as('texto1','Dirección');
+		$crud->display_as('texto2','Teléfono');
+
 		$crud->unset_add();
 		$crud->unset_delete();
-		$this->render_crud();
+        $this->render_crud();
 	}
 	
+	// Frontend Seccion Imagenes CRUD
+	public function seccion_img()
+	{
+		$crud = $this->generate_crud('imagenes');
+		$this->mPageTitle = 'Imágenes';
+
+		$crud->columns('titulo_imagen', 'descripcion_imagen', 'ruta_imagen');
+		$crud->display_as('titulo_imagen','Título');
+		$crud->display_as('descripcion_imagen','Descripción');
+		$crud->display_as('ruta_imagen','Imagen');
+		
+		$crud->set_field_upload('ruta_imagen','public/images');
+		$crud->required_fields('titulo_imagen','ruta_imagen');
+		$crud->set_subject('Imágenes');
+		
+        $this->render_crud();
+	}
 }

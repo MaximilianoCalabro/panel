@@ -8,6 +8,9 @@
 
 	#home-carousel  .item {
 		height: 500px;
+	}	
+	#home-carousel2  .item {
+		height: 500px;
 	}
 	
 	.carousel-caption h1 {
@@ -42,6 +45,9 @@
 	}
 
 	#home-carousel  .item {
+		height: 500px;
+	}
+	#home-carousel2  .item {
 		height: 500px;
 	}
 
@@ -111,6 +117,9 @@
 	}
 
 	#home-carousel  .item {
+		height: 300px;
+	}
+	#home-carousel2  .item {
 		height: 300px;
 	}
 
