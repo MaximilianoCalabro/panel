@@ -39,11 +39,11 @@
 <body>
 
     <!-- PRELOADER -->
-<!--     <div id="st-preloader">
+    <div id="st-preloader">
         <div id="pre-status">
             <div class="preload-placeholder"></div>
         </div>
-    </div> -->
+    </div>
     <!-- /PRELOADER -->
 
     <!-- SLIDER -->
@@ -73,14 +73,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="st-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#slider">Inicio</a></li>
                         <li><a href="#quienes-somos">Quienes Somos</a></li>
-                        <li><a href="#planta">Nuestra Planta</a></li>
                         <li><a href="#slider2">Nuestros Quesos</a></li>
+                        <li><a href="#planta">Nuestra Planta</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                         <li><a href="#contact">Contactenos</a></li>
                     </ul>
@@ -97,9 +98,7 @@
                 <div class="col-md-12">
                     <div class="section-title">
                         <h1>
-                            <?php foreach ($who as $fila): ?>
-                            <span><?php echo $fila ->titulo ; ?></span>
-                            <?php endforeach; ?>
+                            <span><?php echo $who[0] ->titulo; ?></span>
                         </h1>
                         <span class="st-border"></span>
                     </div>
@@ -108,23 +107,15 @@
                 <div class="col-md-12 col-sm-6 st-service">
                     
                     <h2>
-                        <?php foreach ($who as $fila): ?>
-                        <span><?php echo $fila ->subtitulo ; ?></span>
-                        <?php endforeach; ?>
+                        <span><?php echo $who[0] ->subtitulo; ?></span>
                     </h2>
                     <br>
                     <p>
-                        <?php foreach ($who as $fila): ?>
-                        <span><?php echo $fila ->texto1 ; ?></span>
-                        <?php endforeach; ?>
+                        <span><?php echo $who[0] ->texto1; ?></span>
                     </p>
-                    
                     <br>
-
                     <p>
-                        <?php foreach ($who as $fila): ?>
-                        <span><?php echo $fila ->texto2 ; ?></span>
-                        <?php endforeach; ?>
+                        <span><?php echo $who[0] ->texto2; ?></span>
                     </p>
                 </div>
 
@@ -223,29 +214,25 @@
                             <span><?php echo $loc[0] ->texto ; ?></span>
                         </p>
                     </div>
+                    <div id="map_container" class="about-us text-center">
+                        <div id="map">
+                            <div class="google-maps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="400px" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-6 our-office">
                     <div id="office-carousel" class="carousel slide" data-ride="carousel">          
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="container embed-responsive embed-responsive-16by9 google-map" >
-                                    <div id="map_container"></div>
-                                    <div id="map">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="800" height="530" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                             
-                                <?php for ($i=0; $i<count($loc); $i++): ?>
-                                <div class="item">
+                            <?php for ($i=0; $i<count($loc); $i++): ?>
+                                <div  class="item <?php if ($i==0) echo "active"; ?>" >
                                 	<div >
                                 	 <img src="<?php echo base_url("public/images/"),$loc[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                                 	 </div>
                                 </div>
-                                <?php endfor; ?>
-                            
-                            
-                          
+                            <?php endfor; ?>
+                                                  
                             <a class="office-carousel-left" href="#office-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                             <a class="office-carousel-right" href="#office-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                         </div>      
@@ -262,24 +249,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1><span>
-                        <?php foreach ($cont as $fila): ?>
-                        <span><?php echo $fila ->titulo ; ?></span>
-                        <?php endforeach; ?></span></h1>
+                        <h1>
+                            <span><?php echo $cont[0] ->titulo ; ?></span>
+                        </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
                 <div class="col-sm-4 contact-info">
-                    <p class="st-address"><i class="fa fa-map-marker"></i> <strong><span>
-                        <?php foreach ($cont as $fila): ?>
-                        <span><?php echo $fila ->texto1 ; ?></span>
-                        <?php endforeach; ?>
-                    </span></strong></p>
-                    <p class="st-phone"><i class="fa fa-mobile"></i> <strong><span>
-                        <?php foreach ($cont as $fila): ?>
-                        <span><?php echo $fila ->texto2 ; ?></span>
-                        <?php endforeach; ?>
-                    </span></strong></p>
+                    <p class="st-address"><i class="fa fa-map-marker"></i> 
+                        <strong><span><?php echo $cont[0] ->texto1 ; ?></span></strong>
+                    </p>
+                    <p class="st-phone"><i class="fa fa-mobile"></i> 
+                        <strong><span><strong><span><?php echo $cont[0] ->texto2 ; ?></span></strong>
+                    </p>
                 </div>
                 <div class="col-sm-7 col-sm-offset-1">
                     <form action="<?php echo base_url("home/send-contact")?>" class="contact-form" name="contact-form" method="post">
@@ -349,17 +331,5 @@
 
 
 </body>
-    <script>
-        $(document).ready(function() {
-            // REQUIRES jquery.livequery
-            $('.google-map iframe:visible').livequery(function() {
-                var mapFrame = $(this);
-                if (!$(mapFrame).hasClass('map-refreshed')) {
-                    mapFrame.attr('src', mapFrame.attr('src')+'');
-                    mapFrame.addClass('map-refreshed');
-                }
-            });
-
-        });
-    </script>
+   
 </html>

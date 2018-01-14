@@ -245,7 +245,7 @@ class MY_Controller extends MX_Controller {
 			$this->output->append_output('<hr/>'.print_r($this->mViewData, TRUE));
 		}
 
-		$this->load->view('_base/foot', $this->mViewData);
+// 		$this->load->view('_base/foot', $this->mViewData);
 	}
 
 	// Output JSON string

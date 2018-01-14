@@ -31,7 +31,7 @@ class Home extends MY_Controller {
 		//$this->load->model('demo_cover_photo_model', 'photos');
 		//$this->mViewData['photos'] = $this->photos->get_all();
 		$this->mViewData['photos'] = "mi foto";
-
+		$this->mPageTitle = 'L&aacutecteos - LA UNION';
         //SECCION_HEADER
         $this->mViewData['cabecera'] = $this->SeccionHeader_Model->get_seccion_header()->result();
 
@@ -54,7 +54,7 @@ class Home extends MY_Controller {
 	}
 	
 	public function sendcontact() {
-	    
+	    $this->mPageTitle = 'L&aacutecteos - LA UNION';
 	    //SMTP & mail configuration
 	    $config = array(
 	        'protocol'  => 'smtp',

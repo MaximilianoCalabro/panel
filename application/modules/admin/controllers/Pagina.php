@@ -13,7 +13,7 @@ class Pagina extends Admin_Controller {
 	public function index()
 	{
 		$crud = $this->generate_crud('groups');
-		$this->mPageTitle = 'User Groups';
+		$this->mPageTitle = 'Grupo Usuarios';
 		$this->render_crud();
 		$crud = $this->generate_crud('users');
 	    $crud->columns('groups', 'username', 'email', 'first_name', 'last_name', 'active');
