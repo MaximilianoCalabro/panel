@@ -25,32 +25,21 @@ class Home extends MY_Controller {
 	}
 	public function index()
 	{
-		//$this->render('home', 'full_width');
-
-        // grab records from database table "cover_photos"
-		//$this->load->model('demo_cover_photo_model', 'photos');
-		//$this->mViewData['photos'] = $this->photos->get_all();
-		$this->mViewData['photos'] = "mi foto";
 		$this->mPageTitle = 'L&aacutecteos - LA UNION';
         //SECCION_HEADER
-        $this->mViewData['cabecera'] = $this->SeccionHeader_Model->get_seccion_header()->result();
-
+        $data['cabecera'] = $this->SeccionHeader_Model->get_seccion_header()->result();
 		//SECCION_WHO
-        $this->mViewData['who'] = $this->SeccionWho_Model->get_seccion_who()->result();
-
+        $data['who'] = $this->SeccionWho_Model->get_seccion_who()->result();
         //SECCION_CHESSE
-        $this->mViewData['che'] = $this->SeccionChesse_Model->get_seccion_chesse()->result();
-
+        $data['che'] = $this->SeccionChesse_Model->get_seccion_chesse()->result();
         //SECCION_PLANT
-        $this->mViewData['plant'] = $this->SeccionPlant_Model->get_seccion_plant()->result();
-
+        $data['plant'] = $this->SeccionPlant_Model->get_seccion_plant()->result();
 		//SECCION_LOCATION
-        $this->mViewData['loc'] = $this->SeccionLocation_Model->get_seccion_location()->result();
-
+        $data['loc'] = $this->SeccionLocation_Model->get_seccion_location()->result();
         //SECCION_CONTACT
-        $this->mViewData['cont'] = $this->SeccionContact_Model->get_seccion_contact()->result();
-
-		$this->render('home');
+        $data['cont'] = $this->SeccionContact_Model->get_seccion_contact()->result();
+// 		
+		$this->load->view('home', $data);
 	}
 	
 	public function sendcontact() {
