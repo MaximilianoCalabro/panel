@@ -55,10 +55,9 @@
                 <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$cabecera[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                 </div>
                 <?php endfor; ?>
-            </div>
-
             <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-            <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+            <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>         
+            </div>
         </div><!--/#home-carousel--> 
     </section>
     <!-- /SLIDER -->
@@ -159,10 +158,9 @@
                 <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$che[$i]->ruta_imagen; ?>">
                 </div>
                 <?php endfor; ?>
-            </div>
-
             <a class="home-carousel-left" href="#home-carousel2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
             <a class="home-carousel-right" href="#home-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
+            </div>
         </div><!--/#home-carousel--> 
     </section>
     <!-- /NUESTROS QUESOS -->
@@ -240,7 +238,7 @@
                              
                                 <?php for ($i=0; $i<count($loc); $i++): ?>
                                 <div class="item">
-                                	<div class="embed-responsive embed-responsive-16by9 google-map">
+                                	<div >
                                 	 <img src="<?php echo base_url("public/images/"),$loc[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                                 	 </div>
                                 </div>

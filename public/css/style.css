@@ -203,14 +203,14 @@
 	.st-navbar ul li a{
 		text-transform: uppercase;
 		font-weight: 600;
-		padding: 0;
+		padding: 15px;
 		margin: 14px;
 	}
 
 	.st-navbar ul li a:hover,
 	.st-navbar ul li a:focus {
-		background-color: transparent;
-		color: #000;
+		background-color:#9E9E9E;
+		color: #fff;
 	}
 
 	.st-navbar .navbar-header{
@@ -248,11 +248,11 @@
 	#home-carousel .item:before{
 		background-color: #000;
 		content: "";
-		height: 100%;
 		top: 0;
 		left: 0;
 		opacity: 0.5;
 		position: absolute;
+		height: 100%;
 		width: 100%;
 	}
 
@@ -286,7 +286,7 @@
 
 	.home-carousel-left, 
 	.home-carousel-right {	
-		background-color: #f0f0f0;
+		background-color: transparent;
 		color:#000;
 		font-size: 32px;
 		height: 40px;
@@ -305,11 +305,11 @@
 	}
 
 	.home-carousel-left {
-		left:-32px;
+		left:0px;
 	}
 
 	.home-carousel-right {
-		right:-32px;
+		right:0px;
 	}
 
 	#home-carousel:hover .home-carousel-left {
