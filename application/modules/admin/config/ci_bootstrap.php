@@ -95,7 +95,6 @@ $config['ci_bootstrap'] = array(
 				'Ubicaci&oacuten'	=> 'pagina/seccion_location',
 				'Contactenos'		=> 'pagina/seccion_contact',
 			    'Im&aacutegenes'	=> 'pagina/seccion_img',
-
 			)
 		),
 		'util' => array(
