@@ -86,9 +86,9 @@
 	}
 
 	h1, h2, h3, h4, h5, h6{
-		font-family: 'Raleway', sans-serif;
+		font-family: 'Arial', sans-serif;
 		font-weight: 700;
-		text-transform: uppercase;
+		/*text-transform: uppercase;*/
 	}
 
 	input, textarea{
@@ -197,24 +197,24 @@
 	}
 
 	.st-navbar ul{
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 
 	.st-navbar ul li a{
 		text-transform: uppercase;
 		font-weight: 600;
-		padding: 0;
-		margin: 14px;
+		padding: 15px;
+		margin: 10px;
 	}
 
 	.st-navbar ul li a:hover,
 	.st-navbar ul li a:focus {
-		background-color: transparent;
-		color: #000;
+		background-color:#9E9E9E;
+		color: #fff;
 	}
 
 	.st-navbar .navbar-header{
-		margin-top: 25px;
+		margin-top: 10px;
 	}
 
 	.st-navbar .navbar-toggle .icon-bar {
@@ -248,11 +248,11 @@
 	#home-carousel .item:before{
 		background-color: #000;
 		content: "";
-		height: 100%;
 		top: 0;
 		left: 0;
 		opacity: 0.5;
 		position: absolute;
+		height: 100%;
 		width: 100%;
 	}
 
@@ -268,25 +268,25 @@
 	}
 
 	.carousel-caption h1 {
-		font-size:46px;
-		margin-bottom:0;
+		font-size:25px;
+		margin-bottom:10px;
 		line-height:27px;
-		letter-spacing:2px;
+		letter-spacing:0px;
 		font-weight:100;
 	}
 
 	.carousel-caption h2 {
-		font-size:81px;
-		font-weight:600;
+		font-size:35px;
+		font-weight:100;
 		margin-top:0px;
 		text-transform:lowercase;
-		letter-spacing:2px;
+		letter-spacing:0px;
 		margin-bottom:20px;
 	}
 
 	.home-carousel-left, 
 	.home-carousel-right {	
-		background-color: #f0f0f0;
+		background-color: transparent;
 		color:#000;
 		font-size: 32px;
 		height: 40px;
@@ -305,11 +305,11 @@
 	}
 
 	.home-carousel-left {
-		left:-32px;
+		left:0px;
 	}
 
 	.home-carousel-right {
-		right:-32px;
+		right:0px;
 	}
 
 	#home-carousel:hover .home-carousel-left {
@@ -379,6 +379,8 @@
 	}
 
 /*home-carousel2*/
+
+
 	#home-carousel2  .item {
 		background-position: center top;
 		background-repeat: no-repeat;
@@ -405,15 +407,16 @@
 		font-size: 15px;
 		text-align: left;
 		color: #fff;
-		text-shadow: none;
+		text-shadow: 5px;
 		margin-top: -130px;	
 	}
 
 	.carousel-caption h1 {
-		font-size:46px;
-		margin-bottom:0;
+		text-align: center;
+		font-size:35px;
+		margin-bottom:10px;
 		line-height:27px;
-		letter-spacing:2px;
+		letter-spacing:0px;
 		font-weight:100;
 	}
 
@@ -527,8 +530,8 @@
 
 	#quienes-somos{
 		background-color: #f5f5f5;
-		padding-top: 130px;
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 
 	.section-title{
@@ -557,10 +560,10 @@
 
 /* 6. SLIDER 2 */
 
-	#slider2{
-		background-color: #f5f5f5;
-		padding-top: 130px;
-		padding-bottom: 120px;
+	#quesos{
+		background-color: #fff;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 
 	.section-title{
@@ -612,8 +615,9 @@
 	}
 
 	#planta{
-		padding-top: 130px;
-		padding-bottom: 120px;
+		background-color: #f5f5f5;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 
 	.portfolio-wrapper ul.filter{
@@ -694,8 +698,8 @@
 	
 	#pricing{
 		background-color: #f5f5f5;
-		padding-top: 130px;
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 
 	.st-pricing{
@@ -750,8 +754,7 @@
 	
 	#ubicacion{
 		background-color: #fff;
-		padding-top: 130px;
-		padding-bottom: 120px;
+		padding-top: 100px;
 	
 	}
 
@@ -818,8 +821,8 @@
 /* 10. OUR TEAM */
 
 	#our-team{
-		padding-top: 130px;
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 
 	.team-member{
@@ -928,8 +931,8 @@
 
 	#contact{
 		background-color: #f5f5f5;
-		padding-top: 130px;
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 	}
 	
 	.contact-info .contact-content{
@@ -1242,7 +1245,19 @@
 		color: #000;
 	}
 
-
+ 	.google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70% !important;
+        height: 70% !important;
+    }
 
 
 

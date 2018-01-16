@@ -7,59 +7,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MY_Controller {
 
 
-public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 		$this->load->library('form_builder');
 		$this->push_breadcrumb('Demo');
-		$this->load->model('SeccionHeader_Model');
-		$this->load->model('SeccionWho_Model');
 		$this->load->model('SeccionChesse_Model');
-		$this->load->model('SeccionImageChesse_Model');
-		$this->load->model('SeccionPlant_Model');
-		$this->load->model('SeccionImagePlant_Model');
-		$this->load->model('SeccionLocation_Model');
-		$this->load->model('SeccionImageLocation_Model');
 		$this->load->model('SeccionContact_Model');
-		$this->load->model('SeccionImage_Model');
+		$this->load->model('SeccionHeader_Model');
+		$this->load->model('SeccionLocation_Model');
+		$this->load->model('SeccionPlant_Model');
+		$this->load->model('SeccionWho_Model');
+		$this->load->helper('form');
+		//Load email library
+		$this->load->library('email');
+
 	}
 	public function index()
 	{
-		//$this->render('home', 'full_width');
-
-        // grab records from database table "cover_photos"
-		//$this->load->model('demo_cover_photo_model', 'photos');
-		//$this->mViewData['photos'] = $this->photos->get_all();
-		$this->mViewData['photos'] = "mi foto";
-
+		$this->mPageTitle = 'L&aacutecteos - LA UNION';
         //SECCION_HEADER
-        $this->mViewData['cabecera'] = $this->SeccionHeader_Model->get_seccion_header()->result();
-
+        $data['cabecera'] = $this->SeccionHeader_Model->get_seccion_header()->result();
 		//SECCION_WHO
-        $this->mViewData['who'] = $this->SeccionWho_Model->get_seccion_who();
-
+        $data['who'] = $this->SeccionWho_Model->get_seccion_who()->result();
         //SECCION_CHESSE
-        $this->mViewData['che'] = $this->SeccionChesse_Model->get_seccion_chesse();
-
-        //SECCION_CHESSE_IMG
-        $this->mViewData['queso'] = $this->SeccionImageChesse_Model->get_seccion_imgche()->result();
-
+        $data['che'] = $this->SeccionChesse_Model->get_seccion_chesse()->result();
         //SECCION_PLANT
-        $this->mViewData['plan'] = $this->SeccionPlant_Model->get_seccion_plant();
-
-        //SECCION_PLANT_IMG
-        $this->mViewData['planta'] = $this->SeccionImagePlant_Model->get_seccion_imgplant()->result();
-
+        $data['plant'] = $this->SeccionPlant_Model->get_seccion_plant()->result();
 		//SECCION_LOCATION
-        $this->mViewData['loc'] = $this->SeccionLocation_Model->get_seccion_location();
-
-        //SECCION_LOCATION_IMG
-        $this->mViewData['ubicacion'] = $this->SeccionImageLocation_Model->get_seccion_imgloc()->result();
-
+        $data['loc'] = $this->SeccionLocation_Model->get_seccion_location()->result();
         //SECCION_CONTACT
-        $this->mViewData['cont'] = $this->SeccionContact_Model->get_seccion_contact();
-        
-
-		$this->render('home');
+        $data['cont'] = $this->SeccionContact_Model->get_seccion_contact()->result();
+// 		
+		$this->load->view('home', $data);
+	}
+	
+	public function sendcontact() {
+	    $this->mPageTitle = 'L&aacutecteos - LA UNION';
+	    //SMTP & mail configuration
+	    $config = array(
+	        'mailtype'  => 'html',
+	        'charset'   => 'utf-8'
+	    );
+	    $this->email->initialize($config);
+	    $this->email->set_mailtype("html");
+	    $this->email->set_newline("\r\n");
+	    
+	    if ( $this->input->post('name') != '' ) {
+	    
+    	    //Email content
+//     	    $htmlContent = '<h1>' . $this->input->post('motivo') . '</h1>';
+    	    $htmlContent .= '<p>'. $this->input->post('name') . ', ' . $this->input->post('apellido') . '</p>';
+    	    $htmlContent .= '</br>' . $this->input->post('message');
+    	    
+    	    $this->email->to('recipient@example.com');
+    	    $this->email->from($this->input->post('email'), $this->input->post('name'));
+    	    $this->email->subject($this->input->post('motivo'));
+    	    $this->email->message($htmlContent);
+    	    
+    	    //Send email
+    // 	    $this->email->send();
+    	    
+    	    if ($this->email->send())
+    	        echo 'Email enviado';
+    	    else {
+    // 	       echo $this->email->print_debugger();
+                echo 'Email no enviado';	        
+    	    }       
+	    }
+	    echo 'Email enviado';
+	    $this->index();
 	}
 }

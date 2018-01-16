@@ -61,11 +61,11 @@ $config['ci_bootstrap'] = array(
 				'value'	=> 'english'
 			),
 			'zh' => array(
-				'label'	=> '繁體中文',
+				'label'	=> 'ç¹�é«”ä¸­æ–‡',
 				'value'	=> 'traditional-chinese'
 			),
 			'cn' => array(
-				'label'	=> '简体中文',
+				'label'	=> 'ç®€ä½“ä¸­æ–‡',
 				'value'	=> 'simplified-chinese'
 			),
 			'es' => array(

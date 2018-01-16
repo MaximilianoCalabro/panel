@@ -32,6 +32,9 @@
     <source src="video/4.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>--> <!--CODIGO PARA PONER VIDEOS-->
+
+    <!--  <input type="file" name="saras"> --> 
+    
 </head>
 <body>
 
@@ -45,51 +48,19 @@
 
     <!-- SLIDER -->
     <section id="slider">
-        <div id="home-carousel" class="carousel slide" data-ride="carousel">            
-            <div class="carousel-inner">
-                <div class="item active" style="background-image: url(<?php echo base_url("public/images/header/00.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 01</h1>
-                            </div>
-                        </div>
-                    </div>                  
+        <div id="home-carousel" class="carousel slide" data-ride="carousel" style="width:100%">            
+            <!-- Indicators -->
+            <div class="carousel-inner" role="listbox">
+                <?php for ($i=0; $i<count($cabecera); $i++): ?>
+                <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$cabecera[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
                 </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/01.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 02</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/02.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 03</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(<?php echo base_url("public/images/header/03.jpg"); ?>)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h1>HEADER 04</h1>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>      
-        </div> <!--/#home-carousel--> 
+                <?php endfor; ?>
+            <a class="home-carousel-left" href="#home-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+            <a class="home-carousel-right" href="#home-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>         
+            </div>
+        </div><!--/#home-carousel--> 
     </section>
     <!-- /SLIDER -->
-
 
     <!-- HEADER -->
     <header id="header">
@@ -102,14 +73,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="st-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#slider">Inicio</a></li>
                         <li><a href="#quienes-somos">Quienes Somos</a></li>
+                        <li><a href="#quesos">Nuestros Quesos</a></li>
                         <li><a href="#planta">Nuestra Planta</a></li>
-                        <li><a href="#slider2">Nuestros Quesos</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                         <li><a href="#contact">Contactenos</a></li>
                     </ul>
@@ -125,20 +97,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Titulo
+                        <h1>
+                            <span><?php echo $who[0] ->titulo; ?></span>
                         </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
 
                 <div class="col-md-12 col-sm-6 st-service">
-                    <h2>SUBTITULO </h2>
-                                    <?php foreach ($usuarios->result() as $fila): ?>
-                                    <span class="label label-primary"><?php echo $fila ->username ; ?></span>
-                                    <?php endforeach; ?>
-                    <p>TEXTO 1</p>
-
-                    <p>TEXTO 2</p>
+                    
+                    <h2>
+                        <span><?php echo $who[0] ->subtitulo; ?></span>
+                    </h2>
+                    <br>
+                    <p>
+                        <span><?php echo $who[0] ->texto1; ?></span>
+                    </p>
+                    <br>
+                    <p>
+                        <span><?php echo $who[0] ->texto2; ?></span>
+                    </p>
                 </div>
 
                 <!--<div class="col-md-4 col-sm-6 st-service">
@@ -150,6 +128,104 @@
     </section>
     <!-- /QUIENES SOMOS -->
 
+    <!-- NUESTROS QUESOS -->
+    <section id="quesos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h1>
+                            <span><?php echo $che [0] ->titulo ; ?></span>
+                        </h1>
+                        <span class="st-border"></span>
+                    </div>
+                </div>
+                <div class="portfolio-wrapper" >
+                    <div class="portfolio-items">
+                        <?php foreach ($che as $fila): ?>
+                        <div class="col-md-4 col-sm-6 work-grid wordpress graphic">
+                            <div class="portfolio-content">
+                                <img class="img-responsive" src="<?php echo base_url("public/images/") ,$fila->ruta_imagen; ?>" alt="">
+                                <div class="portfolio-overlay">
+                                    <a ><i  data-toggle="modal" data-target="<?php echo '#' . $fila->titulo_imagen; ?>" class="fa fa-camera-retro"></i></a>
+                                </div>
+                            </div>  
+                        </div>
+                        <?php endforeach; ?>
+                    </div>              
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php foreach ($che as $fila): ?>
+    <div class="modal fade product_view" id="<?php echo $fila->titulo_imagen; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                    <h3 class="modal-title">HTML5 is a markup language</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 product_img">
+                            <img src="http://img.bbystatic.com/BestBuy_US/images/products/5613/5613060_sd.jpg" class="img-responsive">
+                        </div>
+                        <div class="col-md-6 product_content">
+                            <h4>Product Id: <span><?php echo '#' . $fila->titulo_imagen; ?></span></h4>
+                            <div class="rating">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                (10 reviews)
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> 75.00 <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 60.00</small></h3>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <select class="form-control" name="select">
+                                        <option value="" selected="">Color</option>
+                                        <option value="black">Black</option>
+                                        <option value="white">White</option>
+                                        <option value="gold">Gold</option>
+                                        <option value="rose gold">Rose Gold</option>
+                                    </select>
+                                </div>
+                                <!-- end col -->
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <select class="form-control" name="select">
+                                        <option value="">Capacity</option>
+                                        <option value="">16GB</option>
+                                        <option value="">32GB</option>
+                                        <option value="">64GB</option>
+                                        <option value="">128GB</option>
+                                    </select>
+                                </div>
+                                <!-- end col -->
+                                <div class="col-md-4 col-sm-12">
+                                    <select class="form-control" name="select">
+                                        <option value="" selected="">QTY</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                    </select>
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <div class="space-ten"></div>
+                            <div class="btn-ground">
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <!-- /NUESTROS QUESOS -->
 
     <!-- NUESTRA PLANTA -->
     <section id="planta">
@@ -157,184 +233,32 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Nuestra Planta</h1>
+                        <h1>
+                            <span><?php echo $plant[0] ->titulo ; ?></span>
+                        </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
-
-                <div class="portfolio-wrapper" >
-                    <div class="col-md-12">
-                        <p>Contamos con una renovada planta elaboradora donde la higiene y minucioso cuidado de los productos que fabricamos es nuestra obsesión.
-                        Contamos con adecuados sistemas de filtros sanitarios, cámaras y depósitos que dan al producto final condiciones óptimas que podemos orgullosamente mostrar y garantizar.
-                        La planta se encuentra a escasos kilómetros del lugar de origen de la leche que diariamente se recolecta, tambos propios y de vecinos que aportan la materia prima encuadrada dentro de los más altos parámetros de calidad. Menos de 30.000 bacterias por cm3 antes de la pasteurización.</p>
-                    </div>
-                    
-                    <div class="portfolio-items">
-                        
-                        <div class="col-md-4 col-sm-6 work-grid wordpress graphic">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/00.jpg"); ?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/00.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <div class="col-md-4 col-sm-6 work-grid html php bootstrap">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/01.jpg");?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/01.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <div class="col-md-4 col-sm-6 work-grid wordpress graphic">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/02.jpg");?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/02.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <div class="col-md-4 col-sm-6 work-grid html php bootstrap">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/03.jpg");?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/03.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <div class="col-md-4 col-sm-6 work-grid wordpress graphic php">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/04.jpg");?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/04.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <div class="col-md-4 col-sm-6 work-grid html bootstrap graphic">
-                            <div class="portfolio-content">
-                                <img class="img-responsive" src="<?php echo base_url("public/images/planta/05.jpg");?>" alt="">
-                                <div class="portfolio-overlay">
-                                    <a href="images/planta/05.jpg"><i class="fa fa-camera-retro"></i></a>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>              
-                </div>
-
             </div>
         </div>
+
+        <div id="home-carousel2" class="carousel slide home-carousel" data-ride="carousel" style="width:100%">
+            <div class="overlayy"><?php echo $plant[0] ->texto ; ?></div>
+            <div class="carousel-inner" role="listbox">
+                <?php for ($i=0; $i<count($plant); $i++): ?>
+                <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$plant[$i]->ruta_imagen; ?>">
+                    <div class="carousel-caption container">
+
+                    </div>
+                </div>
+                <?php endfor; ?>
+  
+            <a class="home-carousel-left" href="#home-carousel2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+            <a class="home-carousel-right" href="#home-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div><!--/#home-carousel--> 
     </section>
     <!-- /NUESTRA PLANTA -->
-    
-    <!-- SLIDER2 -->
-    <section id="slider2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h1>NUESTROS QUESOS</h1>
-                        <span class="st-border"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="home-carousel2" class="carousel slide" data-ride="carousel">           
-            <div class="carousel-inner">
-                <div class="item active" style="background-image: url(http://localhost/panel/public/images/slider/00.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>MOZZARELLA</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/01.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>PATEGRAS</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/02.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>TYBO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/03.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>REGGIANITO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/04.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>SARDO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/05.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>CREMOSO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/06.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>CUARTIROLO</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/07.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>PORT SALUT</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <div class="item" style="background-image: url(http://localhost/panel/public/images/slider/08.jpg)">
-                    <div class="carousel-caption container">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <h2>GOUDA</h2>
-                            </div>
-                        </div>
-                    </div>                  
-                </div>
-                <a class="home-carousel-left" href="#home-carousel2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="home-carousel-right" href="#home-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
-            </div>      
-        </div> <!--/#home-carousel--> 
-    </section>
-    <!-- /SLIDER2 -->
-
 
     <!-- UBICACION -->
     <section id="ubicacion">
@@ -343,41 +267,36 @@
                 <div class="col-sm-6">
                     <div class="about-us text-left">
                         <div class="section-title">
-                            <h1>UBICACION</h1>
+                            <h1>
+                                <span><?php echo $loc[0] ->titulo ; ?></span>
+                            </h1>
                             <span class="st-border"></span>
                         </div>
                     </div>
                     <div class="about-us text-center">
-                        <p>Nuestra Planta se encuentra en la localidad de Villa Maza, partido de Adolfo Alsina en el Centro Oeste de la Provincia de Buenos Aires y a escasos kilómetros de La Pampa. (Meridiano V) por la ruta interprovincial 14.
-                        Prácticamente en el Centro del País y en la parte sur de la cuenca lechera del Oeste.</p>
+                        <p>
+                            <span><?php echo $loc[0] ->texto ; ?></span>
+                        </p>
+                    </div>
+                    <div id="map_container" class="about-us text-center">
+                        <div id="map" class="col-sm-offset-3 col-lg-offset-3">
+                            <div class="google-maps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="400px" height="300px" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6 our-office">
                     <div id="office-carousel" class="carousel slide" data-ride="carousel">          
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/00.jpg" alt="">
+                            <?php for ($i=0; $i<count($loc); $i++): ?>
+                                <div  class="item <?php if ($i==0) echo "active"; ?>" >
+                                	<div >
+                                	 <img src="<?php echo base_url("public/images/"),$loc[$i]->ruta_imagen; ?>" alt="Photo <?php echo $i+1; ?>">
+                                	 </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/01.jpg" alt="">           
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="embed-responsive embed-responsive-16by9 google-map">
-                                <img src="http://localhost/panel/public/images/office/02.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="container embed-responsive embed-responsive-16by9 google-map" >
-                                    <div id="map_container"></div>
-                                    <div id="map">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="800" height="530" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endfor; ?>
+                                                  
                             <a class="office-carousel-left" href="#office-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                             <a class="office-carousel-right" href="#office-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                         </div>      
@@ -388,23 +307,28 @@
     </section>
     <!-- /UBICACION -->
     
-    
     <!-- CONTACTENOS -->
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h1>Contactenos</h1>
+                        <h1>
+                            <span><?php echo $cont[0] ->titulo ; ?></span>
+                        </h1>
                         <span class="st-border"></span>
                     </div>
                 </div>
                 <div class="col-sm-4 contact-info">
-                    <p class="st-address"><i class="fa fa-map-marker"></i> <strong>CP 6343 – Villa Maza Provincia de Buenos Aires, Argentina</strong></p>
-                    <p class="st-phone"><i class="fa fa-mobile"></i> <strong>(0293)5489093</strong></p>
+                    <p class="st-address"><i class="fa fa-map-marker"></i> 
+                        <strong><span><?php echo $cont[0] ->texto1 ; ?></span></strong>
+                    </p>
+                    <p class="st-phone"><i class="fa fa-mobile"></i> 
+                        <strong><span><strong><span><?php echo $cont[0] ->texto2 ; ?></span></strong>
+                    </p>
                 </div>
                 <div class="col-sm-7 col-sm-offset-1">
-                    <form action="php/send-contact.php" class="contact-form" name="contact-form" method="post">
+                    <form action="<?php echo base_url("home/send-contact")?>" class="contact-form" name="contact-form" method="post">
                         <div class="row">
                             <div class="col-sm-6">
                                 <input type="text" name="name" required="required" placeholder="Nombre*">
@@ -442,7 +366,7 @@
                 <!-- SOCIAL ICONS -->
                 <div class="col-sm-6 col-sm-push-6 footer-social-icons">
                     <span></span>
-                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net">NKStudios</a></p>
+                    <p><i class="fa fa-desktop"></i><a href="https://nkstudios.net/new" target=_blank>NKStudios</a></p>
                 </div>
                 <!-- /SOCIAL ICONS -->
             </div>
@@ -450,14 +374,11 @@
     </footer>
     <!-- /FOOTER -->
 
-
     <!-- Scroll-up -->
     <div class="scroll-up">
         <ul><li><a href="#header"><i class="fa fa-angle-up"></i></a></li></ul>
     </div>
 
-    
-    
     <!-- JS -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery.min.js"></script><!-- jQuery -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/bootstrap.min.js"></script><!-- Bootstrap -->
@@ -474,17 +395,18 @@
 
 
 </body>
-<script>
-    $(document).ready(function() {
-        // REQUIRES jquery.livequery
-        $('.google-map iframe:visible').livequery(function() {
-            var mapFrame = $(this);
-            if (!$(mapFrame).hasClass('map-refreshed')) {
-                mapFrame.attr('src', mapFrame.attr('src')+'');
-                mapFrame.addClass('map-refreshed');
-            }
-        });
-
-    });
-    </script>
+   
 </html>
+<style>
+    .overlayy {
+        color:#fff;
+        position:absolute;
+        z-index:12;
+        top:20%;
+        padding-right: 5%;
+        padding-left: 5%;
+        left:0;
+        width:100%;
+        text-align:center;
+    }
+</style>
