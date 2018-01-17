@@ -69,7 +69,7 @@ $config['ci_bootstrap'] = array(
 			'icon'		=> 'fa fa-users',
 			'children'  => array(
 				'Listado'			=> 'user',
-				'Crear'				=> 'user/create',
+				'Crear'		=> 'user/create',
 				'Grupo de Usuarios'	=> 'user/group',
 			)
 		),
@@ -92,9 +92,11 @@ $config['ci_bootstrap'] = array(
 				'Quienes Somos'		=> 'pagina/seccion_who',
 				'Nuestra Planta'	=> 'pagina/seccion_plant',
 				'Nuestros Quesos'	=> 'pagina/seccion_chesse',
+				'Quesos'			=> 'pagina/subquesos',
 				'Ubicaci&oacuten'	=> 'pagina/seccion_location',
 				'Contactenos'		=> 'pagina/seccion_contact',
-			    'Im&aacutegenes'	=> 'pagina/seccion_img',
+			    'Im&aacutegenes'	=> 'pagina/imagenes',
+
 			)
 		),
 		'util' => array(

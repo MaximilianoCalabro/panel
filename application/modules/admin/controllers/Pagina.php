@@ -96,10 +96,8 @@ class Pagina extends Admin_Controller {
 		$crud = $this->generate_crud('seccion_chesse');
 		$this->mPageTitle = 'Nuestros Quesos';
 
-		$crud->columns('titulo', 'imagen');
-		$crud->display_as('imagen','Imágenes');
-		$crud->set_relation_n_n('imagen','rel_chesse_imagenes', 'imagenes', 'fk_seccion_chesse','fk_imagenes', 'titulo_imagen');
-		
+		$crud->columns('titulo');
+		$crud->set_relation_n_n('quesos','rel_chesse_quesos', 'subquesos', 'fk_seccion_chesse','fk_subquesos', 'titulo');
 		$crud->unset_add();
 		$crud->unset_delete();
         $this->render_crud();
@@ -139,7 +137,7 @@ class Pagina extends Admin_Controller {
 	
 	// Frontend Seccion Imagenes CRUD
 
-	public function seccion_img()
+	public function imagenes()
 	{
 		$crud = $this->generate_crud('imagenes');
 		$this->mPageTitle = 'Imágenes';
@@ -154,6 +152,27 @@ class Pagina extends Admin_Controller {
 
 		$crud->set_subject('Imágenes');
 		
+        $this->render_crud();
+	}
+
+
+	// --------------- SECCION DE QUESOS----------------------//
+	// Frontend Seccion Nuestros Quesos CRUD
+	public function subquesos()
+	{
+		$crud = $this->generate_crud('subquesos');
+		$this->mPageTitle = 'Quesos';
+
+		$crud->columns('titulo', 'texto', 'imagen');
+		$crud->display_as('titulo','Queso');
+		$crud->display_as('texto','Descripción');
+		$crud->display_as('imagen','Imágenes');
+		$crud->set_relation_n_n('imagen','rel_quesos_imagenes', 'imagenes', 'fk_subquesos','fk_imagenes', 'titulo_imagen');
+		$crud->set_relation('fk_imagenes','imagenes','titulo_imagen');
+
+		$crud->set_subject('Quesos');
+
+		$crud->unset_delete();
         $this->render_crud();
 	}
 }

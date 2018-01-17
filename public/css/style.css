@@ -530,8 +530,8 @@
 
 	#quienes-somos{
 		background-color: #f5f5f5;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 
 	.section-title{
@@ -562,8 +562,8 @@
 
 	#quesos{
 		background-color: #fff;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 
 	.section-title{
@@ -616,8 +616,8 @@
 
 	#planta{
 		background-color: #f5f5f5;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 
 	.portfolio-wrapper ul.filter{
@@ -698,8 +698,8 @@
 	
 	#pricing{
 		background-color: #f5f5f5;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 
 	.st-pricing{
@@ -754,7 +754,7 @@
 	
 	#ubicacion{
 		background-color: #fff;
-		padding-top: 100px;
+		padding-top: 80px;
 	}
 
 	#ubicacion .about-us{
@@ -820,8 +820,8 @@
 /* 10. OUR TEAM */
 
 	#our-team{
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 
 	.team-member{
@@ -896,8 +896,8 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-attachment: fixed;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 		position: relative;
 	}
 
@@ -930,8 +930,8 @@
 
 	#contact{
 		background-color: #f5f5f5;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 	
 	.contact-info .contact-content{

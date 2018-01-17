@@ -227,6 +227,7 @@
     <?php endforeach; ?>
     <!-- /NUESTROS QUESOS -->
 
+
     <!-- NUESTRA PLANTA -->
     <section id="planta">
         <div class="container">
@@ -279,9 +280,9 @@
                         </p>
                     </div>
                     <div id="map_container" class="about-us text-center">
-                        <div id="map" class="col-sm-offset-3 col-lg-offset-3">
+                        <div id="map">
                             <div class="google-maps">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="400px" height="300px" frameborder="0" allowfullscreen></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12779.04952772128!2d-63.337738!3d-36.8002472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ebed084972ffbcc!2sLacteos+la+Union!5e0!3m2!1ses-419!2sar!4v1514238227412" width="400px" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -397,6 +398,7 @@
 </body>
    
 </html>
+
 <style>
     .overlayy {
         color:#fff;

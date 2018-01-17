@@ -18,6 +18,7 @@ class Home extends MY_Controller {
 		$this->load->model('SeccionLocation_Model');
 		$this->load->model('SeccionPlant_Model');
 		$this->load->model('SeccionWho_Model');
+		$this->load->model('QuesoMuzzarella_Model');
 		$this->load->helper('form');
 		//Load email library
 		$this->load->library('email');
@@ -38,7 +39,7 @@ class Home extends MY_Controller {
         $data['loc'] = $this->SeccionLocation_Model->get_seccion_location()->result();
         //SECCION_CONTACT
         $data['cont'] = $this->SeccionContact_Model->get_seccion_contact()->result();
-// 		
+
 		$this->load->view('home', $data);
 	}
 	
@@ -46,6 +47,11 @@ class Home extends MY_Controller {
 	    $this->mPageTitle = 'L&aacutecteos - LA UNION';
 	    //SMTP & mail configuration
 	    $config = array(
+	        'protocol'  => 'smtp',
+	        'smtp_host' => 'ssl://smtp.example.com',
+	        'smtp_port' => 465,
+	        'smtp_user' => 'email@example.com',
+	        'smtp_pass' => 'email_password',
 	        'mailtype'  => 'html',
 	        'charset'   => 'utf-8'
 	    );
