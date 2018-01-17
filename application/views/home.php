@@ -163,24 +163,25 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-                    <h3 class="modal-title">HTML5 is a markup language</h3>
+                    <h3 class="modal-title"><span><?php echo '#' . $fila->queso; ?></span></h3>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6 product_img">
-                            <img src="http://img.bbystatic.com/BestBuy_US/images/products/5613/5613060_sd.jpg" class="img-responsive">
+                            <?php foreach ($que as $row): ?>
+                            <?php if ( $fila->idche == $row->idqueso):?>
+                                <img src="<?php echo base_url("public/images/") ,$row->ruta_imagen; ?>" class="img-responsive">
+                            <?php endif; ?>
+                             <?php endforeach; ?>
                         </div>
                         <div class="col-md-6 product_content">
                             <h4>Product Id: <span><?php echo '#' . $fila->titulo_imagen; ?></span></h4>
-                            <div class="rating">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                (10 reviews)
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                            <?php foreach ($que as $row): ?>
+                                <?php if ( $fila->idche == $row->idqueso):?>
+                                    <?php echo $row [0] ->texto ; ?>
+                                <?php endif; ?>
+                             <?php endforeach; ?>
                             <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> 75.00 <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 60.00</small></h3>
                             <div class="row">
                                 <div class="col-md-4 col-sm-6 col-xs-12">

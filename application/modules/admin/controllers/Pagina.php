@@ -97,7 +97,7 @@ class Pagina extends Admin_Controller {
 		$this->mPageTitle = 'Nuestros Quesos';
 
 		$crud->columns('titulo');
-		$crud->set_relation_n_n('quesos','rel_chesse_quesos', 'subquesos', 'fk_seccion_chesse','fk_subquesos', 'titulo');
+		$crud->set_relation_n_n('quesos','rel_chesse_quesos', 'subquesos', 'fk_seccion_chesse','fk_subquesos', 'queso');
 		$crud->unset_add();
 		$crud->unset_delete();
         $this->render_crud();
@@ -163,8 +163,8 @@ class Pagina extends Admin_Controller {
 		$crud = $this->generate_crud('subquesos');
 		$this->mPageTitle = 'Quesos';
 
-		$crud->columns('titulo', 'texto', 'imagen');
-		$crud->display_as('titulo','Queso');
+		$crud->columns('queso', 'texto', 'imagen');
+		$crud->display_as('queso','Queso');
 		$crud->display_as('texto','Descripción');
 		$crud->display_as('imagen','Imágenes');
 		$crud->set_relation_n_n('imagen','rel_quesos_imagenes', 'imagenes', 'fk_subquesos','fk_imagenes', 'titulo_imagen');

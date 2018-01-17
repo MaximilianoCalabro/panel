@@ -18,7 +18,6 @@ class Home extends MY_Controller {
 		$this->load->model('SeccionLocation_Model');
 		$this->load->model('SeccionPlant_Model');
 		$this->load->model('SeccionWho_Model');
-		$this->load->model('QuesoMuzzarella_Model');
 		$this->load->helper('form');
 		//Load email library
 		$this->load->library('email');
@@ -33,6 +32,8 @@ class Home extends MY_Controller {
         $data['who'] = $this->SeccionWho_Model->get_seccion_who()->result();
         //SECCION_CHESSE
         $data['che'] = $this->SeccionChesse_Model->get_seccion_chesse()->result();
+        //SECCION_CHESSE
+        $data['que'] = $this->SeccionChesse_Model->get_subquesos()->result();
         //SECCION_PLANT
         $data['plant'] = $this->SeccionPlant_Model->get_seccion_plant()->result();
 		//SECCION_LOCATION
