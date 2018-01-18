@@ -39,11 +39,11 @@
 <body>
 
     <!-- PRELOADER -->
-    <div id="st-preloader">
+<!--     <div id="st-preloader">
         <div id="pre-status">
             <div class="preload-placeholder"></div>
         </div>
-    </div>
+    </div> -->
     <!-- /PRELOADER -->
 
     <!-- SLIDER -->
@@ -118,11 +118,6 @@
                         <span><?php echo $who[0] ->texto2; ?></span>
                     </p>
                 </div>
-
-                <!--<div class="col-md-4 col-sm-6 st-service">
-                    <h2><i class="fa fa-cogs"></i> Web Developement</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero autem, magni veritatis, optio dolor.</p>
-                </div> -->
             </div>
         </div>
     </section>
@@ -158,66 +153,33 @@
         </div>
     </section>
     <?php foreach ($che as $fila): ?>
-    <div class="modal fade product_view" id="<?php echo $fila->titulo_imagen; ?>">
+        <div class="modal fade product_view" id="<?php echo $fila->titulo_imagen; ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-                    <h3 class="modal-title"><span><?php echo '#' . $fila->queso; ?></span></h3>
+                    <h3 class="modal-title text-center"><span><?php echo $fila->queso; ?></span></h3>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 product_img">
-                            <?php foreach ($que as $row): ?>
-                            <?php if ( $fila->idche == $row->idqueso):?>
-                                <img src="<?php echo base_url("public/images/") ,$row->ruta_imagen; ?>" class="img-responsive">
-                            <?php endif; ?>
-                             <?php endforeach; ?>
-                        </div>
-                        <div class="col-md-6 product_content">
-                            <h4>Product Id: <span><?php echo '#' . $fila->titulo_imagen; ?></span></h4>
-
-                            <?php foreach ($que as $row): ?>
-                                <?php if ( $fila->idche == $row->idqueso):?>
-                                    <?php echo $row [0] ->texto ; ?>
-                                <?php endif; ?>
-                             <?php endforeach; ?>
-                            <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> 75.00 <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 60.00</small></h3>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="select">
-                                        <option value="" selected="">Color</option>
-                                        <option value="black">Black</option>
-                                        <option value="white">White</option>
-                                        <option value="gold">Gold</option>
-                                        <option value="rose gold">Rose Gold</option>
-                                    </select>
+                        <div class="col-md-12 product_img">
+                            <div id="home-carousel3" class="carousel slide home-carousel" data-ride="carousel" style="width:100%">
+                                <div class="carousel-inner" role="listbox">
+                                                <?php for ($i=0; $i<count($che); $i++): ?>
+                                                    <div class="item <?php if ($i==0) echo "active"; ?>" style="background-image: url(<?php echo base_url("public/images/"),$che[$i]->ruta_imagen; ?>">
+                                                        <div class="carousel-caption container">
+                                                    </div>
+                                                </div>
+                                            <?php endfor; ?>                  
+                                <a class="home-carousel-left" href="#home-carousel3" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                <a class="home-carousel-right" href="#home-carousel3" data-slide="next"><i class="fa fa-angle-right"></i></a>
                                 </div>
-                                <!-- end col -->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="select">
-                                        <option value="">Capacity</option>
-                                        <option value="">16GB</option>
-                                        <option value="">32GB</option>
-                                        <option value="">64GB</option>
-                                        <option value="">128GB</option>
-                                    </select>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-md-4 col-sm-12">
-                                    <select class="form-control" name="select">
-                                        <option value="" selected="">QTY</option>
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                    </select>
-                                </div>
-                                <!-- end col -->
                             </div>
-                            <div class="space-ten"></div>
-                            <div class="btn-ground">
-                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
-                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+                            <div class="col-md-12">
+                                <?php echo $fila->texto ; ?>  
+                            </div>
+                            <div class="btn-ground text-center col-md-12">
+                                <button type="button" class="btn text-center asd"><a href="#contact">Contactenos</a></button>
                             </div>
                         </div>
                     </div>
@@ -394,7 +356,7 @@
     <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery.isotope.min.js"></script><!-- isotope -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery.magnific-popup.min.js"></script><!-- magnific-popup -->
     <script type="text/javascript" src="<?php echo base_url()?>public/js/scripts.js"></script><!-- Scripts -->
-
+    
 
 </body>
    
@@ -413,3 +375,10 @@
         text-align:center;
     }
 </style>
+
+<script>
+$('.asd').click(function(){ 
+    $(this).parent().parent().parent().parent().parent().parent().parent().modal('hide'); 
+})
+</script>
+
